@@ -5,8 +5,10 @@
   <title>Wireframe - Tienda Doris</title>
   <style>
     /* --- ESTILOS GENERALES --- */
-    body { font-family: sans-serif; margin: 0; color: #555; }
-    a { text-decoration: none; color: #888; } 
+    /* Cambiamos la fuente a serif y el color general a negro */
+    body { font-family: serif; margin: 0; color: black; }
+    /* Hacemos que todos los enlaces sean negros y sin subrayado */
+    a { text-decoration: none; color: black; } 
     
     /* 1. Barra Superior */
     .top-bar {
@@ -17,7 +19,7 @@
       align-items: center;
       position: relative;
     }
-    .top-bar h3 { margin: 0; font-size: 16px; color: #333; }
+    .top-bar h3 { margin: 0; font-size: 16px; }
     .top-bar-imagenes { position: absolute; right: 20px; display: flex; gap: 10px; }
 
     /* 2. Barra de Navegación */
@@ -33,6 +35,7 @@
       padding: 10px 20px;
       border-radius: 20px;
       width: 200px;
+      font-family: serif; /* Para que el texto dentro del buscador también sea serif */
     }
     .logo-contenedor { flex: 1; text-align: center; }
     .iconos-contenedor { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
@@ -57,7 +60,7 @@
       justify-content: center;
       gap: 30px;
       padding: 15px 20px;
-      border-bottom: 2px solid #333; 
+      border-bottom: 2px solid black; 
       margin-bottom: 40px;
     }
     .sub-menu h3 { margin: 0; font-size: 18px; font-weight: normal; }
@@ -80,15 +83,15 @@
       max-width: 1000px;
       height: 300px; 
     }
-    .flecha { font-size: 40px; font-weight: bold; color: #333; cursor: pointer; }
+    .flecha { font-size: 40px; font-weight: bold; cursor: pointer; }
     .imagen-central { width: 150px; height: 150px; background-color: #222; border-radius: 20px; }
     .indicadores { display: flex; gap: 10px; margin-top: 20px; }
     .punto { width: 12px; height: 12px; border-radius: 50%; background-color: #ccc; }
-    .punto.activo { background-color: #888; } 
+    .punto.activo { background-color: black; } 
 
     /* 7. Título Best Sellers */
     .seccion-bestsellers { padding: 0 40px; margin-bottom: 20px; }
-    .seccion-bestsellers h2 { font-weight: normal; color: #333; }
+    .seccion-bestsellers h2 { font-weight: normal; }
 
     /* 8. Cuadrícula de Productos */
     .grid-productos {
@@ -111,7 +114,7 @@
       position: relative;
       margin-bottom: 15px;
     }
-    .btn-favorito { position: absolute; top: 10px; left: 10px; font-size: 20px; color: #333; }
+    .btn-favorito { position: absolute; top: 10px; left: 10px; font-size: 20px; }
     .btn-ver-mas {
       position: absolute;
       top: 10px;
@@ -120,19 +123,17 @@
       background: white;
       padding: 4px 8px;
       border-radius: 4px;
-      color: #333;
-      border: 1px solid #ccc;
+      border: 1px solid black;
     }
-    .tarjeta-producto h3 { font-size: 16px; margin: 10px 0; color: #333; }
-    .rating { font-size: 12px; color: #666; margin-bottom: 10px; }
-    .stars { color: #333; letter-spacing: 2px; }
+    .tarjeta-producto h3 { font-size: 16px; margin: 10px 0; }
+    .rating { font-size: 12px; margin-bottom: 10px; }
+    .stars { letter-spacing: 2px; }
     .precio { font-size: 18px !important; font-weight: bold; }
     .btn-carrito {
       display: block;
-      border: 1px solid #ccc;
+      border: 1px solid black;
       padding: 8px;
       border-radius: 20px;
-      color: #333;
       margin-top: 10px;
     }
 
@@ -154,12 +155,12 @@
       justify-content: center;
       align-items: center;
     }
-    .grid-categorias h3 { color: #333; font-weight: normal; }
+    .grid-categorias h3 { font-weight: normal; }
 
     /* 10. Divisor Subtítulo */
     .divisor-subtitulo { text-align: center; margin-bottom: 40px; }
     .divisor-subtitulo h1 {
-      color: transparent; 
+      color: transparent; /* Este lo mantenemos transparente para que sea la barra gris */
       background-color: #e0e0e0;
       display: inline-block;
       width: 80%;
@@ -177,7 +178,7 @@
       margin-bottom: 60px;
       text-align: center;
     }
-    .beneficios h3 { font-size: 14px; font-weight: normal; color: #333; margin-top: 10px; }
+    .beneficios h3 { font-size: 14px; font-weight: normal; margin-top: 10px; }
 
     /* 12. Promos Grandes (Descuentos y Novedades) */
     .grid-promos {
@@ -202,7 +203,6 @@
       background-color: #e0e0e0;
       padding: 8px 25px;
       border-radius: 20px;
-      color: #333;
       margin-top: 10px;
     }
 
@@ -223,19 +223,18 @@
       height: 250px;
       border-radius: 10px;
     }
-    .texto-video h1 { color: #555; font-size: 28px; }
+    .texto-video h1 { font-size: 28px; }
 
     .seccion-final { text-align: center; padding: 0 40px 60px 40px; }
     .btn-contacto {
       display: inline-block;
       padding: 10px 30px;
-      border: 1px solid #333;
+      border: 1px solid black;
       border-radius: 4px;
-      color: #333;
       font-size: 16px;
     }
 
-    /* --- NUEVO: 14. PIE DE PÁGINA (FOOTER) --- */
+    /* 14. PIE DE PÁGINA (FOOTER) */
     .pie-de-pagina {
       background-color: #d9d9d9;
       padding: 40px 60px;
@@ -245,24 +244,25 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #aaa;
+      border-bottom: 2px solid black;
       padding-bottom: 20px;
       margin-bottom: 30px;
     }
     
-    .footer-superior h2 { color: #333; font-weight: normal; margin-bottom: 10px;}
+    .footer-superior h2 { font-weight: normal; margin-bottom: 10px;}
 
     .formulario-boletin { display: flex; }
     .formulario-boletin input {
       padding: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid black;
       width: 250px;
       border-radius: 4px 0 0 4px;
+      font-family: serif;
     }
     .formulario-boletin button {
       padding: 10px 20px;
-      background-color: #333;
-      color: white;
+      background-color: black;
+      color: white; /* El texto del botón sí lo dejamos blanco para que se lea */
       border: none;
       cursor: pointer;
       border-radius: 0 4px 4px 0;
@@ -275,14 +275,14 @@
       margin-bottom: 30px;
     }
     
-    .footer-columnas h3 { color: #333; margin-bottom: 15px; }
-    .footer-columnas a { display: block; margin-bottom: 8px; font-weight: normal;}
+    .footer-columnas h3 { margin-bottom: 15px; }
+    .footer-columnas a { display: block; margin-bottom: 8px; font-weight: normal; text-decoration: underline;} /* Subrayado para notar que son enlaces */
 
     .footer-inferior {
       display: flex;
       justify-content: center;
       gap: 30px;
-      border-top: 2px solid #aaa;
+      border-top: 2px solid black;
       padding-top: 20px;
     }
     
@@ -292,8 +292,8 @@
       text-align: center;
       margin-top: 20px;
       font-size: 14px;
-      color: #777;
     }
+    .footer-texto-final a { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -316,9 +316,9 @@
       </a>
     </div>
     <div class="iconos-contenedor">
-      <img src="C:\Users\User\Documents\Doris\usuario.png" alt="Usuario" width="24">
-      <img src="C:\Users\User\Documents\Doris\carrito.png" alt="Carrito" width="24">
-      <img src="C:\Users\User\Documents\Doris\favoritos.png" alt="Favoritos" width="24">
+      <a href="https://ejemplo.com"><img src="C:\Users\User\Documents\Doris\usuario.png" alt="Usuario" width="24"></a>
+      <a href="https://ejemplo.com"><img src="C:\Users\User\Documents\Doris\carrito.png" alt="Carrito" width="24"></a>
+      <a href="https://ejemplo.com"><img src="C:\Users\User\Documents\Doris\favoritos.png" alt="Favoritos" width="24"></a>
     </div>
   </nav>
 
@@ -327,7 +327,7 @@
   </div>
 
   <div class="menu-gris">
-    <div>Mujeres | Niñas</div>
+    <div><a href="https://ejemplo.com">Mujeres | Niñas</a></div>
     <h2><a href="https://ejemplo.com">Novedades</a></h2>
     <h2><a href="https://ejemplo.com">Descuentos</a></h2>
     <h2><a href="https://ejemplo.com">Sobre nosotros</a></h2>
@@ -494,28 +494,28 @@
 
     <div class="footer-columnas">
       <div>
-        <h3>Ejemplo subtitulo</h3>
+        <h3><a href="https://ejemplo.com">Ejemplo subtitulo</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
       </div>
       <div>
-        <h3>Ejemplo subtitulo</h3>
+        <h3><a href="https://ejemplo.com">Ejemplo subtitulo</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
       </div>
       <div>
-        <h3>Ejemplo subtitulo</h3>
+        <h3><a href="https://ejemplo.com">Ejemplo subtitulo</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
       </div>
       <div>
-        <h3>Ejemplo subtitulo</h3>
+        <h3><a href="https://ejemplo.com">Ejemplo subtitulo</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
         <h3><a href="https://ejemplo.com">Info</a></h3>
@@ -524,14 +524,14 @@
     </div>
 
     <div class="footer-inferior">
-      <h3><a href="https://ejemplo.com">Info</a></h3>
-      <h3><a href="https://ejemplo.com">Info</a></h3>
-      <h3><a href="https://ejemplo.com">Info</a></h3>
-      <h3><a href="https://ejemplo.com">Info</a></h3>
+      <h3><a href="https://ejemplo.com" style="text-decoration: underline;">Info</a></h3>
+      <h3><a href="https://ejemplo.com" style="text-decoration: underline;">Info</a></h3>
+      <h3><a href="https://ejemplo.com" style="text-decoration: underline;">Info</a></h3>
+      <h3><a href="https://ejemplo.com" style="text-decoration: underline;">Info</a></h3>
     </div>
     
     <div class="footer-texto-final">
-      Contenido del pie de página...
+      <a href="https://ejemplo.com">Contenido del pie de página...</a>
     </div>
   </footer>
 
