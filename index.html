@@ -1,17 +1,166 @@
-# dorisclothes
-Tienda de confección de ropa a tu medida
-!DOCTYPE html
-<html
-<head
-<title>DORIS</title></head>
- <meta charset="UTF-8"
-   </head>
-<body> 
-   <header>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Wireframe - Tienda de Ropa</title>
+  <style>
+    /* --- ESTILOS GENERALES --- */
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      color: #555; /* Color de texto grisáceo típico de los wireframes */
+    }
+
+    a {
+      text-decoration: none; /* Le quita la línea de subrayado a los enlaces */
+      color: #888;
+    }
+
+    /* --- 1. BARRA SUPERIOR (Top Bar) --- */
+    .top-bar {
+      background-color: #d9d9d9;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .top-bar h3 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .top-bar-imagenes {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    /* --- 2. BARRA DE NAVEGACIÓN PRINCIPAL --- */
+    .nav-principal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+
+    .buscador {
+      background-color: #e0e0e0;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      width: 200px;
+      font-size: 16px;
+    }
+
+    .logo-contenedor {
+      flex: 1;
+      text-align: center;
+    }
+
+    .iconos-contenedor {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+
+    /* --- 3. TÍTULO DE COLECCIÓN --- */
+    .titulo-coleccion {
+      text-align: center;
+      margin: 10px 0 20px 0;
+    }
+    
+    .titulo-coleccion h2 {
+      font-weight: normal; /* Le quita la negrita fuerte al h2 */
+      font-size: 22px;
+    }
+
+    /* --- 4. MENÚ GRIS (Novedades, Descuentos...) --- */
+    .menu-gris {
+      background-color: #d9d9d9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+    }
+
+    .menu-gris h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: normal;
+    }
+
+    /* --- 5. SUBMENÚ DE CATEGORÍAS (Blusas, Tops...) --- */
+    .sub-menu {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 20px;
+      border-bottom: 2px solid #333; /* La línea negra que se ve en tu imagen */
+      font-size: 18px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
     <h3>Confeccionamos el outfit que deseas para ti</h3>
-   </header>
-<img src="C:\Users\User\Documents\Doris\iconlupa.png" alt=Buscar">
-</button>
-<button type="submit"
- <input type="search"name="q"placeholder="Busqueda>
-  <h2> <a href="https://ejemplo.com">Colección Femenina</a> </h>
+    
+    <div class="top-bar-imagenes">
+      <img src="C:\Users\..." alt="img1" width="20">
+      <img src="C:\Users\..." alt="img2" width="20">
+    </div>
+  </header>
+
+  <nav class="nav-principal">
+    <div class="buscador-contenedor">
+      <input type="text" class="buscador" placeholder="Buscar">
+    </div>
+
+    <div class="logo-contenedor">
+      <a href="https://ejemplo.com">
+        <img src="C:\Users\User\Documents\Doris\logodoris.png" alt="Logo Doris" height="40">
+      </a>
+    </div>
+
+    <div class="iconos-contenedor">
+      <img src="ruta-usuario.png" alt="Usuario" width="24">
+      <img src="ruta-carrito.png" alt="Carrito" width="24">
+      <img src="ruta-favoritos.png" alt="Favoritos" width="24">
+    </div>
+  </nav>
+
+  <div class="titulo-coleccion">
+    <h2>
+      <a href="https://ejemplo.com">Colección Femenina | Uniformes para salud y estética</a>
+    </h2>
+  </div>
+
+  <div class="menu-gris">
+    <div>Mujeres | Niñas</div>
+    <h2><a href="https://ejemplo.com">Novedades</a></h2>
+    <h2><a href="https://ejemplo.com">Descuentos</a></h2>
+    <h2><a href="https://ejemplo.com">Sobre nosotros</a></h2>
+    <h2><a href="https://ejemplo.com">Contacto</a></h2>
+  </div>
+
+  <div class="sub-menu">
+    <span>Blusas</span>
+    <span>Tops</span>
+    <span>Vestidos</span>
+    <span>Faldas</span>
+    <span>Shorts</span>
+    <span>Pantalones</span>
+    <span>Conjuntos</span>
+    <span>Bragas</span>
+    <span>Panties</span>
+    <span>Scrunchies</span>
+  </div>
+
+</body>
+</html>
