@@ -2,21 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Wireframe - Tienda de Ropa</title>
+  <title>Wireframe - Tienda Doris</title>
   <style>
     /* --- ESTILOS GENERALES --- */
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      color: #555; /* Color de texto grisáceo típico de los wireframes */
-    }
-
-    a {
-      text-decoration: none; /* Le quita la línea de subrayado a los enlaces */
-      color: #888;
-    }
-
-    /* --- 1. BARRA SUPERIOR (Top Bar) --- */
+    body { font-family: sans-serif; margin: 0; color: #555; }
+    a { text-decoration: none; color: #888; } 
+    
+    /* 1. Barra Superior */
     .top-bar {
       background-color: #d9d9d9;
       padding: 10px 20px;
@@ -25,61 +17,31 @@
       align-items: center;
       position: relative;
     }
+    .top-bar h3 { margin: 0; font-size: 16px; color: #333; }
+    .top-bar-imagenes { position: absolute; right: 20px; display: flex; gap: 10px; }
 
-    .top-bar h3 {
-      margin: 0;
-      font-size: 16px;
-      color: #333;
-    }
-
-    .top-bar-imagenes {
-      position: absolute;
-      right: 20px;
-      display: flex;
-      gap: 10px;
-    }
-
-    /* --- 2. BARRA DE NAVEGACIÓN PRINCIPAL --- */
+    /* 2. Barra de Navegación */
     .nav-principal {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
     }
-
     .buscador {
       background-color: #e0e0e0;
       border: none;
       padding: 10px 20px;
       border-radius: 20px;
       width: 200px;
-      font-size: 16px;
     }
+    .logo-contenedor { flex: 1; text-align: center; }
+    .iconos-contenedor { flex: 1; display: flex; justify-content: flex-end; gap: 20px; }
 
-    .logo-contenedor {
-      flex: 1;
-      text-align: center;
-    }
+    /* 3. Título de Colección */
+    .titulo-coleccion { text-align: center; margin: 10px 0 20px 0; }
+    .titulo-coleccion h2 { font-weight: normal; font-size: 22px; }
 
-    .iconos-contenedor {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-      gap: 20px;
-    }
-
-    /* --- 3. TÍTULO DE COLECCIÓN --- */
-    .titulo-coleccion {
-      text-align: center;
-      margin: 10px 0 20px 0;
-    }
-    
-    .titulo-coleccion h2 {
-      font-weight: normal; /* Le quita la negrita fuerte al h2 */
-      font-size: 22px;
-    }
-
-    /* --- 4. MENÚ GRIS (Novedades, Descuentos...) --- */
+    /* 4. Menú Gris */
     .menu-gris {
       background-color: #d9d9d9;
       display: flex;
@@ -87,22 +49,250 @@
       align-items: center;
       padding: 15px 40px;
     }
+    .menu-gris h2 { margin: 0; font-size: 18px; font-weight: normal; }
 
-    .menu-gris h2 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: normal;
-    }
-
-    /* --- 5. SUBMENÚ DE CATEGORÍAS (Blusas, Tops...) --- */
+    /* 5. Submenú de Categorías */
     .sub-menu {
       display: flex;
       justify-content: center;
       gap: 30px;
       padding: 15px 20px;
-      border-bottom: 2px solid #333; /* La línea negra que se ve en tu imagen */
-      font-size: 18px;
-      color: #888;
+      border-bottom: 2px solid #333; 
+      margin-bottom: 40px;
+    }
+    .sub-menu h3 { margin: 0; font-size: 18px; font-weight: normal; }
+
+    /* 6. Carrusel Principal */
+    .contenedor-carrusel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .carrusel {
+      background-color: #e0e0e0;
+      border-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      width: 80%; 
+      max-width: 1000px;
+      height: 300px; 
+    }
+    .flecha { font-size: 40px; font-weight: bold; color: #333; cursor: pointer; }
+    .imagen-central { width: 150px; height: 150px; background-color: #222; border-radius: 20px; }
+    .indicadores { display: flex; gap: 10px; margin-top: 20px; }
+    .punto { width: 12px; height: 12px; border-radius: 50%; background-color: #ccc; }
+    .punto.activo { background-color: #888; } 
+
+    /* 7. Título Best Sellers */
+    .seccion-bestsellers { padding: 0 40px; margin-bottom: 20px; }
+    .seccion-bestsellers h2 { font-weight: normal; color: #333; }
+
+    /* 8. Cuadrícula de Productos */
+    .grid-productos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 20px; 
+      padding: 0 40px;
+      margin-bottom: 60px;
+    }
+    .tarjeta-producto {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .imagen-producto-caja {
+      background-color: #d9d9d9;
+      height: 250px;
+      border-radius: 8px;
+      position: relative;
+      margin-bottom: 15px;
+    }
+    .btn-favorito { position: absolute; top: 10px; left: 10px; font-size: 20px; color: #333; }
+    .btn-ver-mas {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      background: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+    .tarjeta-producto h3 { font-size: 16px; margin: 10px 0; color: #333; }
+    .rating { font-size: 12px; color: #666; margin-bottom: 10px; }
+    .stars { color: #333; letter-spacing: 2px; }
+    .precio { font-size: 18px !important; font-weight: bold; }
+    .btn-carrito {
+      display: block;
+      border: 1px solid #ccc;
+      padding: 8px;
+      border-radius: 20px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    /* 9. Categorías Secundarias (Blusas, Panties...) */
+    .grid-categorias {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 0 40px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .caja-img-cat {
+      background-color: #d9d9d9;
+      height: 300px; 
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .grid-categorias h3 { color: #333; font-weight: normal; }
+
+    /* 10. Divisor Subtítulo */
+    .divisor-subtitulo { text-align: center; margin-bottom: 40px; }
+    .divisor-subtitulo h1 {
+      color: transparent; 
+      background-color: #e0e0e0;
+      display: inline-block;
+      width: 80%;
+      height: 20px;
+      border-radius: 10px;
+      margin: 0;
+    }
+
+    /* 11. Beneficios (Iconos) */
+    .beneficios {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 40px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .beneficios h3 { font-size: 14px; font-weight: normal; color: #333; margin-top: 10px; }
+
+    /* 12. Promos Grandes (Descuentos y Novedades) */
+    .grid-promos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      padding: 0 40px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .caja-promo {
+      background-color: #d9d9d9;
+      height: 400px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn-gris {
+      display: inline-block;
+      background-color: #e0e0e0;
+      padding: 8px 25px;
+      border-radius: 20px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    /* 13. Sección de Imagen/Video y Contacto Final */
+    .seccion-video {
+      background-color: #d9d9d9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 40px;
+      margin: 0 40px 60px 40px;
+      border-radius: 10px;
+    }
+    .caja-imagen-video {
+      background-color: #222;
+      width: 250px;
+      height: 250px;
+      border-radius: 10px;
+    }
+    .texto-video h1 { color: #555; font-size: 28px; }
+
+    .seccion-final { text-align: center; padding: 0 40px 60px 40px; }
+    .btn-contacto {
+      display: inline-block;
+      padding: 10px 30px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      color: #333;
+      font-size: 16px;
+    }
+
+    /* --- NUEVO: 14. PIE DE PÁGINA (FOOTER) --- */
+    .pie-de-pagina {
+      background-color: #d9d9d9;
+      padding: 40px 60px;
+    }
+    
+    .footer-superior {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #aaa;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-superior h2 { color: #333; font-weight: normal; margin-bottom: 10px;}
+
+    .formulario-boletin { display: flex; }
+    .formulario-boletin input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      width: 250px;
+      border-radius: 4px 0 0 4px;
+    }
+    .formulario-boletin button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .footer-columnas {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-columnas h3 { color: #333; margin-bottom: 15px; }
+    .footer-columnas a { display: block; margin-bottom: 8px; font-weight: normal;}
+
+    .footer-inferior {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      border-top: 2px solid #aaa;
+      padding-top: 20px;
+    }
+    
+    .footer-inferior h3 { font-weight: normal; font-size: 14px; }
+    
+    .footer-texto-final {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777;
     }
   </style>
 </head>
@@ -110,10 +300,9 @@
 
   <header class="top-bar">
     <h3>Confeccionamos el outfit que deseas para ti</h3>
-    
     <div class="top-bar-imagenes">
-      <img src="C:\Users\..." alt="img1" width="20">
-      <img src="C:\Users\..." alt="img2" width="20">
+      <img src="C:\Users\User\Documents\Doris\icono1.png" alt="img1" width="20">
+      <img src="C:\Users\User\Documents\Doris\icono2.png" alt="img2" width="20">
     </div>
   </header>
 
@@ -121,24 +310,20 @@
     <div class="buscador-contenedor">
       <input type="text" class="buscador" placeholder="Buscar">
     </div>
-
     <div class="logo-contenedor">
       <a href="https://ejemplo.com">
         <img src="C:\Users\User\Documents\Doris\logodoris.png" alt="Logo Doris" height="40">
       </a>
     </div>
-
     <div class="iconos-contenedor">
-      <img src="ruta-usuario.png" alt="Usuario" width="24">
-      <img src="ruta-carrito.png" alt="Carrito" width="24">
-      <img src="ruta-favoritos.png" alt="Favoritos" width="24">
+      <img src="C:\Users\User\Documents\Doris\usuario.png" alt="Usuario" width="24">
+      <img src="C:\Users\User\Documents\Doris\carrito.png" alt="Carrito" width="24">
+      <img src="C:\Users\User\Documents\Doris\favoritos.png" alt="Favoritos" width="24">
     </div>
   </nav>
 
   <div class="titulo-coleccion">
-    <h2>
-      <a href="https://ejemplo.com">Colección Femenina | Uniformes para salud y estética</a>
-    </h2>
+    <h2><a href="https://ejemplo.com">Colección Femenina | Uniformes para salud y estética</a></h2>
   </div>
 
   <div class="menu-gris">
@@ -150,17 +335,205 @@
   </div>
 
   <div class="sub-menu">
-    <span>Blusas</span>
-    <span>Tops</span>
-    <span>Vestidos</span>
-    <span>Faldas</span>
-    <span>Shorts</span>
-    <span>Pantalones</span>
-    <span>Conjuntos</span>
-    <span>Bragas</span>
-    <span>Panties</span>
-    <span>Scrunchies</span>
+    <h3><a href="https://ejemplo.com">Blusas</a></h3>
+    <h3><a href="https://ejemplo.com">Tops</a></h3>
+    <h3><a href="https://ejemplo.com">Vestidos</a></h3>
+    <h3><a href="https://ejemplo.com">Faldas</a></h3>
+    <h3><a href="https://ejemplo.com">Shorts</a></h3>
+    <h3><a href="https://ejemplo.com">Pantalones</a></h3>
   </div>
+
+  <main class="contenedor-carrusel">
+    <div class="carrusel">
+      <div class="flecha">&lt;</div>
+      <div class="imagen-central"></div>
+      <div class="flecha">&gt;</div>
+    </div>
+    <div class="indicadores">
+      <div class="punto activo"></div>
+      <div class="punto"></div>
+      <div class="punto"></div>
+    </div>
+  </main>
+
+  <section class="seccion-bestsellers">
+    <h2>Best seller del mes</h2>
+  </section>
+
+  <section class="grid-productos">
+    <div class="tarjeta-producto">
+      <div class="imagen-producto-caja">
+        <a href="https://ejemplo.com" class="btn-favorito">♡</a>
+        <a href="https://ejemplo.com" class="btn-ver-mas">Ver más</a>
+        <img src="C:\Users\User\Documents\Doris\imagendelmes1.jpg" alt="Descripción" style="max-width:100%; max-height:100%; display:none;">
+      </div>
+      <h3>Ejemplo subtitulo</h3>
+      <div class="rating"><span class="stars">★★★★☆</span></div>
+      <h3 class="precio">$ 00.00</h3>
+      <a href="https://ejemplo.com" class="btn-carrito">Agregar al carrito</a>
+    </div>
+    <div class="tarjeta-producto">
+      <div class="imagen-producto-caja">
+        <a href="https://ejemplo.com" class="btn-favorito">♡</a>
+        <a href="https://ejemplo.com" class="btn-ver-mas">Ver más</a>
+        <img src="C:\Users\User\Documents\Doris\imagendelmes2.jpg" alt="Descripción" style="max-width:100%; max-height:100%; display:none;">
+      </div>
+      <h3>Ejemplo subtitulo</h3>
+      <div class="rating"><span class="stars">★★★★★</span></div>
+      <h3 class="precio">$ 00.00</h3>
+      <a href="https://ejemplo.com" class="btn-carrito">Agregar al carrito</a>
+    </div>
+    <div class="tarjeta-producto">
+      <div class="imagen-producto-caja">
+        <a href="https://ejemplo.com" class="btn-favorito">♡</a>
+        <a href="https://ejemplo.com" class="btn-ver-mas">Ver más</a>
+        <img src="C:\Users\User\Documents\Doris\imagendelmes3.jpg" alt="Descripción" style="max-width:100%; max-height:100%; display:none;">
+      </div>
+      <h3>Ejemplo subtitulo</h3>
+      <div class="rating"><span class="stars">★★★★☆</span></div>
+      <h3 class="precio">$ 00.00</h3>
+      <a href="https://ejemplo.com" class="btn-carrito">Agregar al carrito</a>
+    </div>
+    <div class="tarjeta-producto">
+      <div class="imagen-producto-caja">
+        <a href="https://ejemplo.com" class="btn-favorito">♡</a>
+        <a href="https://ejemplo.com" class="btn-ver-mas">Ver más</a>
+        <img src="C:\Users\User\Documents\Doris\imagendelmes4.jpg" alt="Descripción" style="max-width:100%; max-height:100%; display:none;">
+      </div>
+      <h3>Ejemplo subtitulo</h3>
+      <div class="rating"><span class="stars">★★★★★</span></div>
+      <h3 class="precio">$ 00.00</h3>
+      <a href="https://ejemplo.com" class="btn-carrito">Agregar al carrito</a>
+    </div>
+  </section>
+
+  <section class="grid-categorias">
+    <div>
+      <a href="https://ejemplo.com"><div class="caja-img-cat"><img src="C:\Users\User\Documents\Doris\imagen1Blusas.jpg" alt="Descripción" style="max-width:100%; max-height:100%;"></div></a>
+      <h3><a href="https://ejemplo.com">Blusas</a></h3>
+    </div>
+    <div>
+      <a href="https://ejemplo.com"><div class="caja-img-cat"><img src="C:\Users\User\Documents\Doris\imagen2Panties.jpg" alt="Descripción" style="max-width:100%; max-height:100%;"></div></a>
+      <h3><a href="https://ejemplo.com">Panties</a></h3>
+    </div>
+    <div>
+      <a href="https://ejemplo.com"><div class="caja-img-cat"><img src="C:\Users\User\Documents\Doris\imagen3Scrunchies.jpg" alt="Descripción" style="max-width:100%; max-height:100%;"></div></a>
+      <h3><a href="https://ejemplo.com">Scrunchies</a></h3>
+    </div>
+    <div>
+      <a href="https://ejemplo.com"><div class="caja-img-cat"><img src="C:\Users\User\Documents\Doris\imagen4Vestidos.jpg" alt="Descripción" style="max-width:100%; max-height:100%;"></div></a>
+      <h3><a href="https://ejemplo.com">Vestidos</a></h3>
+    </div>
+  </section>
+
+  <div class="divisor-subtitulo"><h1>Ejemplo subtitulo</h1></div>
+
+  <section class="beneficios">
+    <div>
+      <img src="C:\Users\User\Documents\Doris\iconatencionalcliente.png" alt="Descripción" width="40">
+      <h3>Ejemplo subtitulo</h3>
+    </div>
+    <div>
+      <img src="C:\Users\User\Documents\Doris\iconcamiondeenvio.png" alt="Descripción" width="40">
+      <h3>Ejemplo subtitulo</h3>
+    </div>
+    <div>
+      <img src="C:\Users\User\Documents\Doris\iconflechadevolucion.png" alt="Descripción" width="40">
+      <h3>Ejemplo subtitulo</h3>
+    </div>
+    <div>
+      <img src="C:\Users\User\Documents\Doris\iconpagosegurocandado.png" alt="Descripción" width="40">
+      <h3>Ejemplo subtitulo</h3>
+    </div>
+  </section>
+
+  <section class="grid-promos">
+    <div>
+      <a href="https://ejemplo.com"><div class="caja-promo"><img src="C:\Users\User\Documents\Doris\imagen1Descuentos.jpg" alt="Descripción" style="max-width:100%; max-height:100%;"></div></a>
+      <h2><a href="https://ejemplo.com">Ver descuentos</a></h2>
+      <a href="https://ejemplo.com" class="btn-gris">Ver descuentos</a>
+    </div>
+    <div>
+      <a href="https://ejemplo.com"><div class="caja-promo"><img src="C:\Users\User\Documents\Doris\imagen1Novedades.jpg" alt="Descripción" style="max-width:100%; max-height:100%;"></div></a>
+      <h2><a href="https://ejemplo.com">Ver novedades</a></h2>
+      <a href="https://ejemplo.com" class="btn-gris">Ver novedades</a>
+    </div>
+  </section>
+
+  <section class="seccion-video">
+    <div>
+      <img src="C:\Users\User\Documents\Doris\imagen5.jpg" alt="Descripción" class="caja-imagen-video">
+    </div>
+    <div class="texto-video">
+      <h1>Ejemplo Titulo</h1>
+    </div>
+  </section>
+
+  <section class="seccion-final">
+    <a href="https://ejemplo.com" class="btn-contacto">Encargar mi prenda personalizada</a>
+  </section>
+
+  <footer class="pie-de-pagina">
+    
+    <div class="footer-superior">
+      <div>
+        <h2>Ejemplo subtitulo</h2>
+        <form action="https://formsubmit.co/tucorreo@ejemplo.com" method="POST" class="formulario-boletin">
+          <input type="email" name="email" placeholder="Tu correo electrónico" required>
+          <button type="submit">➔</button>
+        </form>
+      </div>
+      
+      <div style="text-align: right;">
+        <h2>Ejemplo subtitulo</h2>
+        <a href="https://instagram.com/tunombre" target="_blank">
+          <img src="C:\Users\User\Documents\Doris\instagram-logo.png" alt="Instagram" width="35">
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-columnas">
+      <div>
+        <h3>Ejemplo subtitulo</h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+      </div>
+      <div>
+        <h3>Ejemplo subtitulo</h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+      </div>
+      <div>
+        <h3>Ejemplo subtitulo</h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+      </div>
+      <div>
+        <h3>Ejemplo subtitulo</h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+        <h3><a href="https://ejemplo.com">Info</a></h3>
+      </div>
+    </div>
+
+    <div class="footer-inferior">
+      <h3><a href="https://ejemplo.com">Info</a></h3>
+      <h3><a href="https://ejemplo.com">Info</a></h3>
+      <h3><a href="https://ejemplo.com">Info</a></h3>
+      <h3><a href="https://ejemplo.com">Info</a></h3>
+    </div>
+    
+    <div class="footer-texto-final">
+      Contenido del pie de página...
+    </div>
+  </footer>
 
 </body>
 </html>
