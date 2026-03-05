@@ -32,7 +32,7 @@
         gap: 10px;
       }
 
-      /* 2. Barra de Navegación */
+      /* 2. Barra de favegación */
       .nav-principal {
         display: flex;
         justify-content: space-between;
@@ -70,13 +70,14 @@
 
       /* 4. Menú Gris */
       .menu-gris {
-        background-color: #d9d9d9;
+        background-color: #22398e;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 40px;
+        padding: 0px 60px;
       }
-      .menu-gris h2 {
+      .menu-gris a {
+        color: white;
         margin: 0;
         font-size: 18px;
         font-weight: normal;
@@ -105,7 +106,8 @@
         margin-bottom: 40px;
       }
       .carrusel {
-        background-color: #e0e0e0;
+        /* quitar fondo gris, mantener solo el contenido */
+        background-color: transparent;
         border-radius: 20px;
         display: flex;
         justify-content: space-between;
@@ -121,10 +123,20 @@
         cursor: pointer;
       }
       .imagen-central {
-        width: 150px;
-        height: 150px;
-        background-color: #222;
+        /* expandir para ocupar mayor espacio del carrusel */
+        flex: 1 1 auto;
+        height: 100%;
+        /* quitar color de fondo para que la imagen ocupe toda la forma */
+        background-color: transparent;
         border-radius: 20px;
+        overflow: hidden; /* ensure image doesn't overflow */
+        max-width: 500px; /* opcional, controla tamaño máximo */
+      }
+      .imagen-central img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* keep aspect ratio while filling */
+        display: block;
       }
       .indicadores {
         display: flex;
@@ -146,8 +158,9 @@
         padding: 0 40px;
         margin-bottom: 20px;
       }
-      .seccion-bestsellers h2 {
-        font-weight: normal;
+      .seccion-bestsellers h1 {
+        font-weight: bold;
+        color: #22398e;
       }
 
       /* 8. Cuadrícula de Productos */
@@ -163,29 +176,43 @@
         padding: 15px;
         border-radius: 10px;
         text-align: center;
+        position: relative; /* needed for absolute children */
+        overflow: visible; /* allow elements to rise above */
       }
       .imagen-producto-caja {
-        background-color: #d9d9d9;
+        /* fondo quitado para mostrar solo imagen */
+        background-color: transparent;
         height: 250px;
         border-radius: 8px;
         position: relative;
         margin-bottom: 15px;
+        overflow: hidden; /* garante que los iconos no se salgan del contenedor */
       }
       .btn-favorito {
         position: absolute;
-        top: 10px;
-        left: 10px;
-        font-size: 20px;
+        top: 10px; /* volver a ubicación original */
+        right: 10px; /* a la derecha del botón 'ver más' */
+        font-size: 28px; /* más grande */
+        z-index: 1; /* debajo del botón 'ver más' si se superponen */
+        /* add circular background so heart sits inside image */
+        background-color: rgba(255,255,255,0.8);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .btn-ver-mas {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: -10px; /* lift above top of card */
+        right: 10px; /* align right edge */
         font-size: 12px;
         background: white;
         padding: 4px 8px;
         border-radius: 4px;
         border: 1px solid black;
+        z-index: 3; /* above everything */
       }
       .tarjeta-producto h3 {
         font-size: 16px;
@@ -220,13 +247,26 @@
         text-align: center;
       }
       .caja-img-cat {
-        background-color: #d9d9d9;
-        height: 300px;
+        background-color: transparent;
+        width: 100%;
+        /* fix aspect ratio box; will be controlled by grid columns */
+        padding-top: 100%; /* square */
+        position: relative;
         border-radius: 8px;
         margin-bottom: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        overflow: hidden;
+      }
+      .caja-img-cat img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* ensure pantalon image shows from top */
+      .img-pantalon {
+        object-position: top;
       }
       .grid-categorias h3 {
         font-weight: normal;
@@ -238,12 +278,14 @@
         margin-bottom: 40px;
       }
       .divisor-subtitulo h1 {
-        color: transparent; /* Este lo mantenemos transparente para que sea la barra gris */
-        background-color: #e0e0e0;
-        display: inline-block;
-        width: 80%;
-        height: 20px;
-        border-radius: 10px;
+        /* sólo el texto, sin barra de fondo */
+        color: #22398e;
+        background-color: transparent;
+        display: inline;
+        width: auto;
+        height: auto;
+        line-height: normal;
+        border-radius: 0;
         margin: 0;
       }
 
@@ -256,9 +298,28 @@
         margin-bottom: 60px;
         text-align: center;
       }
+      /* each benefit box has fixed size, same color, rounded corners */
+      .beneficios div {
+        background-color: #1f3c8a; /* nuevo color solicitado */
+        /* no border per user request */
+        border-radius: 10px;
+        padding: 15px 20px;
+        width: 160px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .beneficios div img {
+        display: block;
+        margin: 0 auto;
+      }
       .beneficios h3 {
         font-size: 14px;
-        font-weight: normal;
+        font-weight: bold;
+        color: #f4eedb;
         margin-top: 10px;
       }
 
@@ -272,7 +333,7 @@
         text-align: center;
       }
       .caja-promo {
-        background-color: #d9d9d9;
+        background-color: transparent;
         height: 400px;
         border-radius: 8px;
         margin-bottom: 15px;
@@ -290,7 +351,7 @@
 
       /* 13. Sección de Imagen/Video y Contacto Final */
       .seccion-video {
-        background-color: #d9d9d9;
+        background-color: transparent;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -301,12 +362,16 @@
       }
       .caja-imagen-video {
         background-color: #222;
-        width: 250px;
-        height: 250px;
+        width: 700px;
+        height:400px;
         border-radius: 10px;
       }
-      .texto-video h1 {
+      .texto-video h2 {
         font-size: 28px;
+        text-align: left;
+        color: #f4eedb;
+        background-color: #1f3c8a;
+        padding: 10px 20px;
       }
 
       .seccion-final {
@@ -397,4 +462,9 @@
       }
       .footer-texto-final a {
         text-decoration: underline;
+      }
+
+      .icono-logo{
+        height: 80px;
+        margin-left: 250px;
       }
