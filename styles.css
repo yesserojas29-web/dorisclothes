@@ -12,15 +12,49 @@
    color: black;
  }
 
- /* 1. Barra Superior */
- .top-bar {
-   background-color: #22398e;
-   color: #f4eedb;
-   padding: 10px 20px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   position: relative;
+/* 1. Barra Superior con Scrolling */
+.top-bar {
+  background-color: #22398e;
+  color: #f4eedb;
+  padding: 10px 0; /* Ajustado: sin padding horizontal para que el scroll ocupe todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+  /* CRUCIAL: Ocultar lo que se sale del contenedor */
+  overflow: hidden; 
+  white-space: nowrap; /* Evita que el texto salte de línea */
+}
+
+/* Contenedor interno (opcional, ayuda a centrar) */
+.scroll-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* EL TEXTO QUE SE MUEVE - Esto es lo que le falta a tu código */
+.scroll-text {
+  display: inline-block;
+  font-size: 1.1rem; /* Ajusta el tamaño si lo necesitas */
+  font-weight: 500;
+  white-space: nowrap; /* Asegura que el texto esté en una sola línea */
+  
+  /* La animación base (el JS ajustará la duración automáticamente) */
+  animation: scroll-left 15s linear infinite;
+  will-change: transform; /* Optimiza el rendimiento en navegadores */
+}
+
+/* Definición del movimiento (de derecha a izquierda) */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Se mueve exactamente la mitad para loop perfecto */
+  }
 }
 .top-bar h3 {
  margin: 0;
