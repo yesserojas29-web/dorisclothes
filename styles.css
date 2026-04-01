@@ -16,7 +16,7 @@
 .top-bar {
   background-color: #22398e;
   color: #f4eedb;
-  padding: 2px 0; /* Ajustado: sin padding horizontal para que el scroll ocupe todo */
+  padding: 3px 0; /* Ajustado: sin padding horizontal para que el scroll ocupe todo */
   display: flex;
   justify-content: center;
   align-items: center;
