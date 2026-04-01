@@ -645,6 +645,30 @@
     
     font-weight: bold;           /* <--- AQUÍ SE PONE EN NEGRITA */
 } 
+.rating {
+  display: flex;
+  justify-content: center; /* Esto centra las estrellas horizontalmente */
+  gap: 5px;                /* Espacio entre cada estrella */
+  cursor: pointer;
+  padding: 10px 0;         /* Espacio arriba y abajo del bloque de estrellas */
+  width: 100%;             /* Asegura que ocupe todo el ancho para poder centrar */
+}
+
+.star {
+  font-size: 25px;
+  color: #ccc;             /* Gris cuando está apagada */
+  transition: color 0.2s ease, transform 0.1s ease;
+  user-select: none;
+}
+/* Color cuando se activa (AZUL) */
+/* ¡IMPORTANTE! El JS añade esta clase para que cambie el color */
+.star.active {
+    color: #1f3c8a !important; 
+}
+/* Efecto al pasar el mouse */
+.star:hover {
+  transform: scale(1.2);
+}
 
  /* 9. Categorías Secundarias (Blusas, Panties...) */
  .grid-categorias {
