@@ -1,18 +1,16 @@
-<!doctype html> <!--Inicia la sección principal-->
-<html lang="es">
+<!doctype html> <html lang="es">
   <head>
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8" />
     <title>Wireframe - Tienda Doris</title> 
   </head>
   <body>
-  <!-- 1. Barra Superior con Scrolling -->
-   <header class="top-bar">
+  <header class="top-bar">
     <div class="scroll-container">
       <h3 class="scroll-text">Confeccionamos el outfit que deseas para ti </h3>
     </div>
   </header>
-     <!-- 2. JAVASCRIPT (agregado aquí) -->
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const scrollText = document.querySelector('.scroll-text');
@@ -31,17 +29,15 @@
           console.error('No se encontró el elemento .scroll-text');
         }
       });
-   <nav class="nav-principal">
+    </script> <nav class="nav-principal">
       <div class="buscador-contenedor">
         <input type="text" class="buscador" placeholder="Buscar" />
       </div>
-      <div class="logo-contenedor"> <!--Logo de la barra superior-->
-        <a href="https://ejemplo.com">
+      <div class="logo-contenedor"> <a href="https://ejemplo.com">
           <img class="icono-logo" src="doris_logotipo.png" alt="Descripción" />
         </a>
       </div>
-      <div class="iconos-contenedor"> <!--Iconos de navegación-->
-        <a href="https://ejemplo.com"
+      <div class="iconos-contenedor"> <a href="https://ejemplo.com"
           ><img
             src="icono_user.png"
             alt="Usuario"
@@ -62,7 +58,7 @@
       </div>
     </nav>
 
-<div class="titulo-coleccion">
+  <div class="titulo-coleccion">
     <h2>
       <a href="http://ejemplo.com" class="menu-link active" data-menu="femenina">Colección Femenina</a>
       <a href="http://ejemplo.com" class="menu-link" data-menu="uniformes">Uniformes para salud y estética</a>
@@ -70,15 +66,12 @@
   </div>
 
     <div class="menu-gris">
-      <div><a href="https://ejemplo.com">Mujeres | Niñas</a></div> <!--Clasificación de público-->
-      <h2><a href="https://ejemplo.com">Novedades</a></h2> <!--Inicia la sección del menu principal-->
-      <h2><a href="https://ejemplo.com">Descuentos</a></h2>
+      <div><a href="https://ejemplo.com">Mujeres | Niñas</a></div> <h2><a href="https://ejemplo.com">Novedades</a></h2> <h2><a href="https://ejemplo.com">Descuentos</a></h2>
       <h2><a href="https://ejemplo.com">Sobre nosotros</a></h2>
       <h2><a href="https://ejemplo.com">Contacto</a></h2>
     </div>
 
-    <div class="sub-menu"> <!--Inicia el menu de opciones de los productos-->
-      <h3><a href="https://ejemplo.com">Blusas</a></h3>
+    <div class="sub-menu"> <h3><a href="https://ejemplo.com">Blusas</a></h3>
       <h3><a href="https://ejemplo.com">Tops</a></h3>
       <h3><a href="https://ejemplo.com">Vestidos</a></h3>
       <h3><a href="https://ejemplo.com">Faldas</a></h3>
@@ -90,8 +83,7 @@
       <h3><a href="https://ejemplo.com">Scrunchies</a></h3>
     </div>
 
-    <main class="contenedor-carrusel"> <!--Carrusel llamativo-->
-      <div class="carrusel">
+    <main class="contenedor-carrusel"> <div class="carrusel">
         <div class="flecha">&lt;</div>
         <div class="imagen-central">
           <img src="imagen_banner.png" alt="Banner" style="max-width:100%; max-height:100%;" />
@@ -105,8 +97,7 @@
       </div>
     </main>
 
-    <section class="seccion-bestsellers"> <!--Agregar los best seller del mes-->
-      <h1> Best seller del mes</h1>
+    <section class="seccion-bestsellers"> <h1> Best seller del mes</h1>
     </section>
 
     <section class="grid-productos">
@@ -161,7 +152,7 @@
           <img
             src="Best_seller_4.jpg"
             alt="Descripción"
-            style="max-width: 100%; max-height: 100%;"" 
+            style="max-width: 100%; max-height: 100%;" 
           />
         </div>
         <a href="https://ejemplo.com" class="btn-ver-mas">Ver más</a>
@@ -172,14 +163,10 @@
         </div>
     </section>
 
-<div class="texto-video"> <!--Frase de la marca-->
-        <h2> <center>Del taller a tu armario, fabricantes de tus prendas únicas </h2>
-      </div>
-      </div>
+    <div class="texto-video"> <h2 style="text-align: center;">Del taller a tu armario, fabricantes de tus prendas únicas</h2>
+    </div>
 
-
-    <section class="seccion-video"> <!--Video de los productos-->
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
+    <section class="seccion-video"> <div style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
       <video src="video.mp4" muted autoplay loop class="caja-imagen-video"></video>
       <a href="https://ejemplo.com" class="btn-contacto"
         style="background-color: #22398e; color: #f4eedb; border: none; font-weight: bold; padding: 15px 40px; font-size: 18px; border-radius: 30px;">Encargar
@@ -187,8 +174,7 @@
     </div>
   </section>
 
-    <section class="grid-categorias"> <!--Tarjeta de productos-->
-      <div>
+    <section class="grid-categorias"> <div>
         <a href="https://ejemplo.com"
           ><div class="caja-img-cat">
             <img
@@ -235,10 +221,7 @@
       </div>
     </section>
 
-    <div class="divisor-subtitulo"><h1>Tu experiencia de compra está garantizada con nosotros</h1></div> <!--Frase 2-->
-
-    <section class="beneficios"> <!--Sección de atención a los servicios-->
-      <div>
+    <div class="divisor-subtitulo"><h1>Tu experiencia de compra está garantizada con nosotros</h1></div> <section class="beneficios"> <div>
         <img
           src="icono_atencion.png"
           alt="Descripción"
@@ -272,8 +255,7 @@
       </div>
     </section>
 
-    <section class="grid-promos"> <!--Sección principal de tarjetas de descuentos y novedades-->
-      <div>
+    <section class="grid-promos"> <div>
         <a href="https://ejemplo.com"
           ><div class="caja-promo">
             <img
@@ -282,9 +264,7 @@
               style="max-width: 100%; max-height: 100%"
             /></div
         ></a>
-        <h2><a href="https://ejemplo.com">¡Ofertas limitadas: ahorra hasta 50%!
-
-</a></h2>
+        <h2><a href="https://ejemplo.com">¡Ofertas limitadas: ahorra hasta 50%!</a></h2>
         <a href="https://ejemplo.com" class="btn-gris">Ver descuentos</a>
       </div>
       <div>
@@ -300,9 +280,8 @@
         <a href="https://ejemplo.com" class="btn-gris">Ver novedades</a>
       </div>
     </section>
-    </section>
-    <footer class="pie-de-pagina"> <!--Inicia el pie de página-->
-      <div class="footer-superior">
+
+    <footer class="pie-de-pagina"> <div class="footer-superior">
         <div>
           <h2>Suscríbete para estar informada de nuevas promociones</h2>
           <form
@@ -340,7 +319,6 @@
           <h3><a href="https://ejemplo.com">Guía de tallas</a></h3>
           <h3><a href="https://ejemplo.com">Promociones y descuentos</a></h3>
           <h3><a href="https://ejemplo.com">Doris club</a></h3>
-  
         </div>
         <div>
           <h2><a href="https://ejemplo.com"><b>Obtener ayuda</b></a></h2>
@@ -391,6 +369,5 @@
         <a href="https://ejemplo.com">2026 Doris. Todos los derechos resevados</a>
       </div>
     </footer>
-  </script>
   </body>
 </html>
