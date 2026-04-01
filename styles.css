@@ -22,7 +22,20 @@
    align-items: center;
    position: relative;
  }
-
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const scrollText = document.querySelector('.scroll-text');
+      
+      // Clonar el texto para crear efecto infinito suave
+      const originalText = scrollText.textContent;
+      scrollText.textContent = originalText + '   •   ' + originalText + '   •   ' + originalText;
+      
+      // Ajustar velocidad según el ancho del texto
+      const textWidth = scrollText.offsetWidth;
+      const duration = textWidth / 50;
+      scrollText.style.animationDuration = `${duration}s`;
+    });
+  </script>
  .top-bar h3 {
    margin: 0;
    font-size: 16px;
