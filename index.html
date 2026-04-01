@@ -6,24 +6,11 @@
     <title>Wireframe - Tienda Doris</title>
   </head>
   <body>
-    <div class="top-bar">
+   <header class="top-bar">
     <div class="scroll-container">
-      <p class="scroll-text">Confeccionamos el outfit que deseas para ti/p>
+      <h3 class="scroll-text">Confeccionamos el outfit que deseas para ti • ¡Personalización total! • Envíos nacionales • Diseños únicos para ti</h3>
     </div>
-       <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const scrollText = document.querySelector('.scroll-text');
-      
-      // Clonar el texto para crear efecto infinito suave
-      const originalText = scrollText.textContent;
-      scrollText.textContent = originalText + '   •   ' + originalText + '   •   ' + originalText;
-      
-      // Ajustar velocidad según el ancho del texto
-      const textWidth = scrollText.offsetWidth;
-      const duration = textWidth / 50;
-      scrollText.style.animationDuration = `${duration}s`;
-    });
-  </script>
+  </header>
     <nav class="nav-principal">
       <div class="buscador-contenedor">
         <input type="text" class="buscador" placeholder="Buscar" />
@@ -55,13 +42,12 @@
       </div>
     </nav>
 
-    <div class="titulo-coleccion">
-      <h2>
-        <a href="https://ejemplo.com"
-          >Colección Femenina | Uniformes para salud y estética</a
-        >
-      </h2>
-    </div>
+<div class="titulo-coleccion">
+    <h2>
+      <a href="http://ejemplo.com" class="menu-link active" data-menu="femenina">Colección Femenina</a>
+      <a href="http://ejemplo.com" class="menu-link" data-menu="uniformes">Uniformes para salud y estética</a>
+    </h2>
+  </div>
 
     <div class="menu-gris">
       <div><a href="https://ejemplo.com">Mujeres | Niñas</a></div>
