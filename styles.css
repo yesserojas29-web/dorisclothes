@@ -142,6 +142,45 @@
 .menu-link.active::after {
     width: 100%;
 }
+/* --- Estilos del Sub-menú --- */
+.sub-menu {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 25px;              /* Espacio entre cada categoría */
+    padding: 20px 0;
+    flex-wrap: wrap;        /* Si no caben, bajan a la siguiente línea */
+}
+/* TRUCO PARA EVITAR MOVIMIENTO DE TEXTO AL PONER NEGRITA */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+.sub-menu h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;    /* Estado inicial: letra fina */
+    transition: all 0.3s ease; /* Suaviza tanto el zoom como el cambio de peso */
+}
+/* TRUCO PARA EVITAR MOVIMIENTO DE TEXTO AL PONER NEGRITA */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+.sub-menu a {
+    text-decoration: none;
+    color: #333;            /* Color gris oscuro/negro */
+    display: inline-block;  /* Necesario para que el transform (zoom) funcione */
+    transition: all 0.3s ease;
+}
+
+/* --- EFECTO HOVER (Zoom y Negrita) --- */
+.sub-menu h3:hover {
+    font-weight: bold;      /* Se pone en negrita */
+    transform: scale(1.1);  /* Hace un ligero zoom del 10% */
+}
+
+.sub-menu h3:hover a {
+    color: #22398e;         /* Opcional: cambia al azul Doris al pasar el mouse */
 }
 .top-bar h3 {
  margin: 0;
