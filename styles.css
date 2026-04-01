@@ -516,26 +516,52 @@
    /* garante que los iconos no se salgan del contenedor */
  }
 
- .btn-favorito {
-   position: absolute;
-   top: 10px;
-   /* volver a ubicación original */
-   right: 10px;
-   /* a la derecha del botón 'ver más' */
-   font-size: 28px;
-   /* más grande */
-   z-index: 1;
-   /* debajo del botón 'ver más' si se superponen */
-   /* add circular background so heart sits inside image */
-   background-color: rgba(255, 255, 255, 0.8);
-   border-radius: 50%;
-   width: 40px;
-   height: 40px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
+.btn-favorito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 26px;            /* Ajustamos ligeramente el tamaño */
+    z-index: 10;
+    
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo circular traslúcido */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;  /* Suaviza la animación de color y fondo */
+    
+    /* --- ESTADO INICIAL (Relleno Blanco con Contorno Negro) --- */
+    color: white;               /* Color de RELLENO del corazón */
+    
+    /* TRUCO PARA EL CONTORNO NEGRO */
+    -webkit-text-stroke: 1.5px black; /* Grosor y color del borde (para Chrome/Safari/Edge) */
+    text-stroke: 1.5px black;         /* Estándar (menor soporte actual) */
+    
+    /* Asegura que el texto sea nítido */
+    -webkit-font-smoothing: antialiased;
+}
 
+/* --- EFECTO HOVER (Al pasar el mouse) --- */
+.btn-favorito:hover {
+    /* --- CAMBIO AL AZUL (Quitar Contorno y Rellenar) --- */
+    color: #1f3c8a;             /* El RELLENO se vuelve AZUL 100% */
+    
+    /* QUITAMOS EL CONTORNO NEGRO */
+    -webkit-text-stroke: 0px transparent;
+    text-stroke: 0px transparent;
+    
+    /* Opcional: El fondo blanco circular se vuelve más sólido */
+    background-color: rgba(255, 255, 255, 1); 
+    
+    /* Opcional: Un ligero aumento de tamaño para que se sienta vivo */
+    transform: scale(1.1);
+}
  .btn-ver-mas {
    position: absolute;
    top: -10px;
