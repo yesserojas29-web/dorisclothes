@@ -6,17 +6,38 @@
     <title>Wireframe - Tienda Doris</title> 
   </head>
   <body>
-    <header class="top-bar">
-      <h3>Confeccionamos el outfit que deseas para ti</h3> <!--cabecera-->
-    </header>
-
-    <nav class="nav-principal"> <!--Inicia la barra de navegación-->
+  <!-- 1. Barra Superior con Scrolling -->
+   <header class="top-bar">
+    <div class="scroll-container">
+      <h3 class="scroll-text">Confeccionamos el outfit que deseas para ti </h3>
+    </div>
+  </header>
+     <!-- 2. JAVASCRIPT (agregado aquí) -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const scrollText = document.querySelector('.scroll-text');
+        
+        if (scrollText) {
+          // 1. Duplicar el texto para el efecto infinito
+          const originalText = scrollText.textContent.trim();
+          scrollText.textContent = originalText + ' • ' + originalText + ' • ';
+          
+          // 2. Ajustar velocidad según el ancho real del texto
+          const textWidth = scrollText.scrollWidth;
+          scrollText.style.animationDuration = `${textWidth / 20}s`;
+          
+          console.log('Animación iniciada. Duración:', scrollText.style.animationDuration);
+        } else {
+          console.error('No se encontró el elemento .scroll-text');
+        }
+      });
+   <nav class="nav-principal">
       <div class="buscador-contenedor">
         <input type="text" class="buscador" placeholder="Buscar" />
       </div>
       <div class="logo-contenedor"> <!--Logo de la barra superior-->
         <a href="https://ejemplo.com">
-          <img class="icono-logo" src="/doris_logotipo-06.png" alt="Descripción" />
+          <img class="icono-logo" src="doris_logotipo.png" alt="Descripción" />
         </a>
       </div>
       <div class="iconos-contenedor"> <!--Iconos de navegación-->
@@ -41,13 +62,12 @@
       </div>
     </nav>
 
-    <div class="titulo-coleccion"> <!--Clasificación del sitio-->
-      <h2>
-        <a href="https://ejemplo.com"
-          >Colección Femenina | Uniformes para salud y estética</a
-        >
-      </h2>
-    </div>
+<div class="titulo-coleccion">
+    <h2>
+      <a href="http://ejemplo.com" class="menu-link active" data-menu="femenina">Colección Femenina</a>
+      <a href="http://ejemplo.com" class="menu-link" data-menu="uniformes">Uniformes para salud y estética</a>
+    </h2>
+  </div>
 
     <div class="menu-gris">
       <div><a href="https://ejemplo.com">Mujeres | Niñas</a></div> <!--Clasificación de público-->
@@ -371,5 +391,6 @@
         <a href="https://ejemplo.com">2026 Doris. Todos los derechos resevados</a>
       </div>
     </footer>
+  </script>
   </body>
 </html>
