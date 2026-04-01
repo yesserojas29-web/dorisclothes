@@ -1,77 +1,62 @@
-<!doctype html> <html lang="es">
+<!doctype html>
+<html lang="es">
   <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <meta charset="UTF-8" />
-    <title>Wireframe - Tienda Doris</title> 
+    <title>Wireframe - Tienda Doris</title>
   </head>
   <body>
-  <header class="top-bar">
-    <div class="scroll-container">
-      <h3 class="scroll-text">Confeccionamos el outfit que deseas para ti </h3>
-    </div>
-  </header>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const scrollText = document.querySelector('.scroll-text');
-        
-        if (scrollText) {
-          // 1. Duplicar el texto para el efecto infinito
-          const originalText = scrollText.textContent.trim();
-          scrollText.textContent = originalText + ' • ' + originalText + ' • ';
-          
-          // 2. Ajustar velocidad según el ancho real del texto
-          const textWidth = scrollText.scrollWidth;
-          scrollText.style.animationDuration = `${textWidth / 20}s`;
-          
-          console.log('Animación iniciada. Duración:', scrollText.style.animationDuration);
-        } else {
-          console.error('No se encontró el elemento .scroll-text');
-        }
-      });
-    </script> <nav class="nav-principal">
+    <header class="top-bar">
+      <div class="scroll-container">
+        <h3 class="scroll-text">Confeccionamos el outfit que deseas para ti</h3>
+      </div>
+    </header>
+    <nav class="nav-principal">
       <div class="buscador-contenedor">
         <input type="text" class="buscador" placeholder="Buscar" />
       </div>
-      <div class="logo-contenedor"> <a href="https://ejemplo.com">
+      <div class="logo-contenedor">
+        <a href="https://ejemplo.com">
           <img class="icono-logo" src="doris_logotipo.png" alt="Descripción" />
         </a>
       </div>
-      <div class="iconos-contenedor"> <a href="https://ejemplo.com"
-          ><img
-            src="icono_user.png"
-            alt="Usuario"
-            width="60"
+      <div class="iconos-contenedor">
+        <a href="https://ejemplo.com"
+          ><img src="icono_user.png" alt="Usuario" width="60"
         /></a>
         <a href="https://ejemplo.com"
-          ><img
-            src="icono_carrito.png"
-            alt="Carrito"
-            width="60"
+          ><img src="icono_carrito.png" alt="Carrito" width="60"
         /></a>
         <a href="https://ejemplo.com"
-          ><img
-            src="icono_favoritos.png"
-            alt="Favoritos"
-            width="60"
+          ><img src="icono_favoritos.png" alt="Favoritos" width="60"
         /></a>
       </div>
     </nav>
 
-  <div class="titulo-coleccion">
-    <h2>
-      <a href="http://ejemplo.com" class="menu-link active" data-menu="femenina">Colección Femenina</a>
-      <a href="http://ejemplo.com" class="menu-link" data-menu="uniformes">Uniformes para salud y estética</a>
-    </h2>
-  </div>
+    <div class="titulo-coleccion">
+      <h2>
+        <a
+          href="http://ejemplo.com"
+          class="menu-link active"
+          data-menu="femenina"
+          >Colección Femenina |</a
+        >
+        <a href="http://ejemplo.com" class="menu-link" data-menu="uniformes"
+          >Uniformes para salud y estética</a
+        >
+      </h2>
+    </div>
 
     <div class="menu-gris">
-      <div><a href="https://ejemplo.com">Mujeres | Niñas</a></div> <h2><a href="https://ejemplo.com">Novedades</a></h2> <h2><a href="https://ejemplo.com">Descuentos</a></h2>
+      <div><a href="https://ejemplo.com">Mujeres | Niñas</a></div>
+      <h2><a href="https://ejemplo.com">Novedades</a></h2>
+      <h2><a href="https://ejemplo.com">Descuentos</a></h2>
       <h2><a href="https://ejemplo.com">Sobre nosotros</a></h2>
       <h2><a href="https://ejemplo.com">Contacto</a></h2>
     </div>
 
-    <div class="sub-menu"> <h3><a href="https://ejemplo.com">Blusas</a></h3>
+    <div class="sub-menu">
+      <h3><a href="https://ejemplo.com">Blusas</a></h3>
       <h3><a href="https://ejemplo.com">Tops</a></h3>
       <h3><a href="https://ejemplo.com">Vestidos</a></h3>
       <h3><a href="https://ejemplo.com">Faldas</a></h3>
@@ -83,10 +68,15 @@
       <h3><a href="https://ejemplo.com">Scrunchies</a></h3>
     </div>
 
-    <main class="contenedor-carrusel"> <div class="carrusel">
+    <main class="contenedor-carrusel">
+      <div class="carrusel">
         <div class="flecha">&lt;</div>
         <div class="imagen-central">
-          <img src="imagen_banner.png" alt="Banner" style="max-width:100%; max-height:100%;" />
+          <img
+            src="imagen_banner.png"
+            alt="Banner"
+            style="max-width: 100%; max-height: 100%"
+          />
         </div>
         <div class="flecha">&gt;</div>
       </div>
@@ -97,8 +87,7 @@
       </div>
     </main>
 
-    <section class="seccion-bestsellers"> <h1> Best seller del mes</h1>
-    </section>
+    <section class="seccion-bestsellers"><h1>Best seller del mes</h1></section>
 
     <section class="grid-productos">
       <div class="tarjeta-producto">
@@ -108,10 +97,10 @@
           <img
             src="Best_seller_scrunchie.jpeg"
             alt="Descripción"
-            style="max-width: 100%; max-height: 100%; "
+            style="max-width: 100%; max-height: 100%"
           />
         </div>
-        <h3>  Scrunchies</h3>
+        <h3>Scrunchies</h3>
         <div class="rating"><span class="stars">★★★★☆</span></div>
         <h3 class="precio">$ 3.00</h3>
         <a href="https://ejemplo.com" class="btn-carrito">Agregar al carrito</a>
@@ -123,7 +112,7 @@
           <img
             src="Best_seller_2.jpg"
             alt="Descripción"
-            style="max-width: 100%; max-height: 100%;"
+            style="max-width: 100%; max-height: 100%"
           />
         </div>
         <h3>Blusas manga waves</h3>
@@ -138,7 +127,7 @@
           <img
             src="Best_seller_3.png"
             alt="Descripción"
-            style="max-width: 100%; max-height: 100%;"
+            style="max-width: 100%; max-height: 100%"
           />
         </div>
         <h3>Uniforme blue heart</h3>
@@ -152,7 +141,7 @@
           <img
             src="Best_seller_4.jpg"
             alt="Descripción"
-            style="max-width: 100%; max-height: 100%;" 
+            style="max-width: 100%; max-height: 100%"
           />
         </div>
         <a href="https://ejemplo.com" class="btn-ver-mas">Ver más</a>
@@ -160,21 +149,50 @@
         <div class="rating"><span class="stars">★★★★★</span></div>
         <h3 class="precio">$ 25.00</h3>
         <a href="https://ejemplo.com" class="btn-carrito">Agregar al carrito</a>
-        </div>
+      </div>
     </section>
 
-    <div class="texto-video"> <h2 style="text-align: center;">Del taller a tu armario, fabricantes de tus prendas únicas</h2>
+    <div class="texto-video">
+      <h2 style="text-align: center">
+        Del taller a tu armario, fabricantes de tus prendas únicas
+      </h2>
     </div>
 
-    <section class="seccion-video"> <div style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
-      <video src="video.mp4" muted autoplay loop class="caja-imagen-video"></video>
-      <a href="https://ejemplo.com" class="btn-contacto"
-        style="background-color: #22398e; color: #f4eedb; border: none; font-weight: bold; padding: 15px 40px; font-size: 18px; border-radius: 30px;">Encargar
-        mi prenda personalizada</a>
-    </div>
-  </section>
+    <section class="seccion-video">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 30px;
+        "
+      >
+        <video
+          src="video.mp4"
+          muted
+          autoplay
+          loop
+          class="caja-imagen-video"
+        ></video>
+        <a
+          href="https://ejemplo.com"
+          class="btn-contacto"
+          style="
+            background-color: #22398e;
+            color: #f4eedb;
+            border: none;
+            font-weight: bold;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+          "
+          >Encargar mi prenda personalizada</a
+        >
+      </div>
+    </section>
 
-    <section class="grid-categorias"> <div>
+    <section class="grid-categorias">
+      <div>
         <a href="https://ejemplo.com"
           ><div class="caja-img-cat">
             <img
@@ -221,41 +239,38 @@
       </div>
     </section>
 
-    <div class="divisor-subtitulo"><h1>Tu experiencia de compra está garantizada con nosotros</h1></div> <section class="beneficios"> <div>
-        <img
-          src="icono_atencion.png"
-          alt="Descripción"
-          width="95"
-        />
+    <div class="divisor-subtitulo">
+      <h1>Tu experiencia de compra está garantizada con nosotros</h1>
+    </div>
+    <section class="beneficios">
+      <div>
+        <img src="icono_atencion.png" alt="Descripción" width="95" />
         <h3>Atención Personalizada</h3>
       </div>
       <div>
-        <img
-          src="icono_envio.png"
-          alt="Descripción"
-          width="90"
-        />
-        <h3>Envíos <br> Nacionales</h3>
+        <img src="icono_envio.png" alt="Descripción" width="90" />
+        <h3>
+          Envíos <br />
+          Nacionales
+        </h3>
       </div>
       <div>
-        <img
-          src="icono_reembolso.png"
-          alt="Descripción"
-          width="80"
-        />
+        <img src="icono_reembolso.png" alt="Descripción" width="80" />
         <h3>Devoluciones y Reembolsos</h3>
       </div>
       <div>
-        <img
-          src="icono_pago_seguro.png"
-          alt="Descripción"
-          width="80"
-        />
-        <h3><b>Pagos <br> Seguros</b></h3>
+        <img src="icono_pago_seguro.png" alt="Descripción" width="80" />
+        <h3>
+          <b
+            >Pagos <br />
+            Seguros</b
+          >
+        </h3>
       </div>
     </section>
 
-    <section class="grid-promos"> <div>
+    <section class="grid-promos">
+      <div>
         <a href="https://ejemplo.com"
           ><div class="caja-promo">
             <img
@@ -264,7 +279,11 @@
               style="max-width: 100%; max-height: 100%"
             /></div
         ></a>
-        <h2><a href="https://ejemplo.com">¡Ofertas limitadas: ahorra hasta 50%!</a></h2>
+        <h2>
+          <a href="https://ejemplo.com"
+            >¡Ofertas limitadas: ahorra hasta 50%!</a
+          >
+        </h2>
         <a href="https://ejemplo.com" class="btn-gris">Ver descuentos</a>
       </div>
       <div>
@@ -276,12 +295,17 @@
               style="max-width: 100%; max-height: 100%"
             /></div
         ></a>
-        <h2><a href="https://ejemplo.com">Lo más nuevo acaba de llegar, ¡explóralo!</a></h2>
+        <h2>
+          <a href="https://ejemplo.com"
+            >Lo más nuevo acaba de llegar, ¡explóralo!</a
+          >
+        </h2>
         <a href="https://ejemplo.com" class="btn-gris">Ver novedades</a>
       </div>
     </section>
 
-    <footer class="pie-de-pagina"> <div class="footer-superior">
+    <footer class="pie-de-pagina">
+      <div class="footer-superior">
         <div>
           <h2>Suscríbete para estar informada de nuevas promociones</h2>
           <form
@@ -302,18 +326,16 @@
         <div style="text-align: right">
           <h2>Síguenos en instagram</h2>
           <a href="https://instagram.com/tunombre" target="_blank">
-            <img
-              src="instagram.png"
-              alt="Instagram"
-              width="35"
-            />
+            <img src="instagram.png" alt="Instagram" width="35" />
           </a>
         </div>
       </div>
 
       <div class="footer-columnas">
         <div>
-          <h2><a href="https://ejemplo.com"><b>Recursos</b></a></h2>
+          <h2>
+            <a href="https://ejemplo.com"><b>Recursos</b></a>
+          </h2>
           <h3><a href="https://ejemplo.com">Tarjetas de regalo</a></h3>
           <h3><a href="https://ejemplo.com">Tarjetas de fidelización</a></h3>
           <h3><a href="https://ejemplo.com">Guía de tallas</a></h3>
@@ -321,7 +343,9 @@
           <h3><a href="https://ejemplo.com">Doris club</a></h3>
         </div>
         <div>
-          <h2><a href="https://ejemplo.com"><b>Obtener ayuda</b></a></h2>
+          <h2>
+            <a href="https://ejemplo.com"><b>Obtener ayuda</b></a>
+          </h2>
           <h3><a href="https://ejemplo.com">¿Cómo comprar?</a></h3>
           <h3><a href="https://ejemplo.com">Estado del pedido</a></h3>
           <h3><a href="https://ejemplo.com">Envíos y entregas</a></h3>
@@ -330,14 +354,18 @@
           <h3><a href="https://ejemplo.com">Opciones de pago</a></h3>
         </div>
         <div>
-          <h2><a href="https://ejemplo.com"><b>Sobre nosotros</b></a></h2>
+          <h2>
+            <a href="https://ejemplo.com"><b>Sobre nosotros</b></a>
+          </h2>
           <h3><a href="https://ejemplo.com">Historia</a></h3>
           <h3><a href="https://ejemplo.com">Misión</a></h3>
           <h3><a href="https://ejemplo.com">Visión</a></h3>
           <h3><a href="https://ejemplo.com">Empleo</a></h3>
         </div>
         <div>
-          <h2><a href="https://ejemplo.com"><b>Atención al cliente</b></a></h2>
+          <h2>
+            <a href="https://ejemplo.com"><b>Atención al cliente</b></a>
+          </h2>
           <h3><a href="https://ejemplo.com">WhatsApp</a></h3>
         </div>
       </div>
@@ -366,8 +394,11 @@
       </div>
 
       <div class="footer-texto-final">
-        <a href="https://ejemplo.com">2026 Doris. Todos los derechos resevados</a>
+        <a href="https://ejemplo.com"
+          >2026 Doris. Todos los derechos resevados</a
+        >
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
