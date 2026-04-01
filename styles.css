@@ -16,7 +16,7 @@
 .top-bar {
   background-color: #22398e;
   color: #f4eedb;
-  padding: 10px 0; /* Ajustado: sin padding horizontal para que el scroll ocupe todo */
+  padding: 3px 0; /* Ajustado: sin padding horizontal para que el scroll ocupe todo */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,6 +55,93 @@
   100% {
     transform: translateX(-50%); /* Se mueve exactamente la mitad para loop perfecto */
   }
+}
+/* --- 2. Estilos del Título de Colección (CENTRADO) --- */
+.titulo-coleccion {
+    width: 100%;           /* Ocupa todo el ancho */
+    display: flex;         /* Activa flexbox */
+    justify-content: center; /* CENTRA TODO EL CONTENIDO */
+    margin: 30px 0;        /* Espacio arriba y abajo del menú */
+}
+
+/* --- 2. Estilos del Título de Colección (CENTRADO) --- */
+.titulo-coleccion {
+    width: 100%;           /* Ocupa todo el ancho */
+    display: flex;         /* Activa flexbox */
+    justify-content: center; /* CENTRA TODO EL CONTENIDO */
+    margin: 30px 0;        /* Espacio arriba y abajo del menú */
+}
+
+.titulo-coleccion h2 {
+    display: flex;
+    gap: 20px;            /* Espacio entre textos y el separador */
+    align-items: center;
+    margin: 0;
+}
+
+/* --- ESTILO DEL SEPARADOR (La línea vertical) --- */
+.separador {
+    color: black;         /* Color NEGRO para el separador */
+    font-weight: normal;  /* Mantenemos el peso normal para el separador */
+    cursor: default;      /* Cursor normal */
+    user-select: none;    /* Evita selección accidental */
+    font-size: 24px;      /* Mismo tamaño que los enlaces */
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #333;          /* Color normal del texto (gris oscuro) */
+    position: relative;   /* Necesario para posicionar la línea */
+    padding-bottom: 8px;   /* Espacio para la línea */
+    font-size: 24px;      /* Tamaño de letra */
+    transition: color 0.3s ease;
+}
+/* --- La línea azul --- */
+.menu-link::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #22398e;
+    transition: width 0.3s ease;
+}
+
+/* --- EFECTO HOVER --- */
+/* Cuando pasas el mouse, se pone azul y sale la línea */
+.menu-link:hover {
+    color: #22398e !important; 
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* --- ESTADO ACTIVO (Solo al cargar la página) --- */
+.menu-link.active {
+    color: #22398e;
+}
+
+.menu-link.active::after {
+    width: 100%;
+}
+
+/* El separador siempre negro */
+.separador {
+    color: black;
+    font-size: 24px;
+    padding: 0 10px;
+}
+/* Cuando el enlace está activo, la línea crece al 100% */
+.menu-link.active {
+    color: #22398e;
+    font-weight: bold;
+}
+
+.menu-link.active::after {
+    width: 100%;
+}
 }
 .top-bar h3 {
  margin: 0;
