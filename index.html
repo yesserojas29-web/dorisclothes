@@ -6,10 +6,24 @@
     <title>Wireframe - Tienda Doris</title>
   </head>
   <body>
-    <header class="top-bar">
-      <h3>Confeccionamos el outfit que deseas para ti</h3>
-    </header>
-
+    <div class="top-bar">
+    <div class="scroll-container">
+      <p class="scroll-text">Confeccionamos el outfit que deseas para ti/p>
+    </div>
+       <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const scrollText = document.querySelector('.scroll-text');
+      
+      // Clonar el texto para crear efecto infinito suave
+      const originalText = scrollText.textContent;
+      scrollText.textContent = originalText + '   •   ' + originalText + '   •   ' + originalText;
+      
+      // Ajustar velocidad según el ancho del texto
+      const textWidth = scrollText.offsetWidth;
+      const duration = textWidth / 50;
+      scrollText.style.animationDuration = `${duration}s`;
+    });
+  </script>
     <nav class="nav-principal">
       <div class="buscador-contenedor">
         <input type="text" class="buscador" placeholder="Buscar" />
