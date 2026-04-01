@@ -11,6 +11,18 @@
       <h3 class="scroll-text">Confeccionamos el outfit que deseas para ti </h3>
     </div>
   </header>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. Scrolling text infinito suave
+  const scrollText = document.querySelector('.scroll-text');
+  if (scrollText) {
+    const originalText = scrollText.textContent;
+    scrollText.textContent = originalText + ' • ' + originalText + ' • ';
+    
+    // Ajustar velocidad
+    const textWidth = scrollText.scrollWidth;
+    scrollText.style.animationDuration = `${textWidth / 50}s`;
+  }
     <nav class="nav-principal">
       <div class="buscador-contenedor">
         <input type="text" class="buscador" placeholder="Buscar" />
