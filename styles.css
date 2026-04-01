@@ -649,7 +649,56 @@
    text-decoration: underline;
  }
 
- .icono-logo {
-   height: 80px;
-   margin-left: 250px;
- }
+/* --- Estructura de la Barra de Navegación --- */
+.nav-principal {
+    display: flex;
+    justify-content: space-between; /* Separa los 3 bloques: Izquierda, Centro, Derecha */
+    align-items: center;            /* Centra todo verticalmente */
+    padding: 10px 40px;             /* Espacio interno */
+    background-color: white;        /* O el color que prefieras */
+}
+
+/* Aseguramos que los 3 bloques tengan el mismo ancho teórico para que el centro sea real */
+.buscador-contenedor, 
+.iconos-contenedor {
+    flex: 1; /* Esto hace que ambos lados ocupen el mismo espacio */
+}
+
+.logo-contenedor {
+    flex: 2;            /* Le damos un poco más de espacio al logo */
+    display: flex;
+    justify-content: center; /* CENTRA EL LOGO HORIZONTALMENTE */
+}
+
+.iconos-contenedor {
+    display: flex;
+    justify-content: flex-end; /* Empuja los iconos de usuario/carrito a la derecha */
+    gap: 20px;
+}
+
+/* --- Ajustes del Logo --- */
+.icono-logo {
+    width: 250px;       /* Tamaño más grande para PC */
+    max-width: 100%;    /* No se sale del contenedor */
+    height: auto;
+    transition: width 0.3s ease;
+}
+
+/* --- RESPONSIVO PARA MÓVIL --- */
+@media (max-width: 768px) {
+    .nav-principal {
+        flex-direction: column; /* En móvil, ponemos uno debajo del otro */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .icono-logo {
+        width: 180px; /* Logo más pequeño en celulares */
+    }
+
+    .buscador-contenedor, 
+    .iconos-contenedor {
+        width: 100%;
+        justify-content: center; /* Centramos todo en móvil */
+    }
+}
