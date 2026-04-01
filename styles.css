@@ -233,6 +233,11 @@
    /* needed for absolute children */
    overflow: visible;
    /* allow elements to rise above */
+   transition: transform 0.3s ease;
+ }
+
+ .tarjeta-producto:hover {
+   transform: scale(1.05);
  }
 
  .imagen-producto-caja {
