@@ -16,7 +16,7 @@
 .top-bar {
   background-color: #22398e;
   color: #f4eedb;
-  padding: 3px 0; /* Ajustado: sin padding horizontal para que el scroll ocupe todo */
+  padding: 2px 0; /* Ajustado: sin padding horizontal para que el scroll ocupe todo */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -194,22 +194,161 @@
    font-size: 22px;
  }
 
- /* 4. Menú Gris */
- .menu-gris {
-   background-color: #22398e;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 0px 60px;
- }
+ /* --- 2. Estilos del Título de Colección --- */
+.titulo-coleccion {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
 
- .menu-gris a {
-   color: white;
-   margin: 0;
-   font-size: 18px;
-   font-weight: normal;
- }
+.menu-link {
+    text-decoration: none;
+    color: #333; 
+    position: relative; 
+    padding-bottom: 8px;
+    font-size: 24px;
+    font-weight: normal; /* Aseguramos peso NORMAL aquí */
+    transition: color 0.3s ease;
+}
 
+/* --- QUITAMOS LA NEGRITA DE UNIFORMES --- */
+[data-menu="uniformes"] {
+    font-weight: normal; /* Antes estaba en bold, ahora es normal */
+}
+
+/* --- QUITAMOS LA NEGRITA DEL ESTADO ACTIVO --- */
+.menu-link.active {
+    color: #22398e;
+    font-weight: normal; /* Ahora el activo solo se distingue por el azul y la línea */
+}
+
+/* --- 4. Menú Gris (Barra Azul) --- */
+.menu-gris {
+    background-color: #22398e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; 
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
+}
+/* Forzamos a que tanto los DIV como los H2 dentro del menú tengan el mismo estilo */
+.menu-gris div, 
+.menu-gris h2 {
+    margin: 0;
+    font-weight: normal; /* Sin negrita */
+    font-size: 20px;     /* <--- AJUSTA ESTE NÚMERO para cambiar el tamaño de todos a la vez */
+    display: flex;
+    align-items: center;
+}
+
+.menu-gris h2 {
+    font-weight: normal; /* Quitamos la negrita natural de los h2 */
+    font-size: 20px;
+    margin: 0;
+}
+
+.menu-gris a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal; /* Aseguramos que los enlaces sean finos */
+}
+/* --- 4. Menú Gris (Barra Azul con Interactividad) --- */
+.menu-gris {
+    background-color: #22398e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px; 
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
+}
+
+.menu-gris h2, 
+.menu-gris div {
+    margin: 0;
+    font-weight: normal;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+/* Contenedor específico para Mujeres | Niñas */
+.grupo-mujeres {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre Mujeres, la barra y Niñas */
+}
+
+/* Estilo del separador vertical blanco */
+.separador-blanco {
+    color: white;
+    font-size: 18px;
+    cursor: default;
+    user-select: none;
+}
+
+/* --- Efecto de línea blanca (Reutilizamos lo anterior) --- */
+.menu-gris a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+}
+
+.menu-gris a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.menu-gris a:hover::after {
+    width: 100%;
+}
+
+/* Quitamos márgenes extra de los h2 para que no desalineen la barra */
+.menu-gris h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+.menu-gris a {
+    color: white;
+    text-decoration: none;
+    position: relative;    /* NECESARIO para la línea */
+    padding-bottom: 4px;   /* Espacio para la línea blanca */
+    transition: opacity 0.3s ease;
+}
+
+/* --- LÍNEA BLANCA HORIZONTAL (Efecto Base) --- */
+.menu-gris a::after {
+    content: '';
+    position: absolute;
+    width: 0;              /* Empieza sin ancho */
+    height: 2px;           /* Grosor de la línea blanca */
+    bottom: 0;
+    left: 0;
+    background-color: white; /* Color BLANCO */
+    transition: width 0.3s ease; /* Efecto de deslizamiento */
+}
+
+/* --- EFECTO HOVER (Al pasar el mouse) --- */
+.menu-gris a:hover::after {
+    width: 100%;           /* La línea aparece al 100% */
+}
+
+/* Opcional: un pequeño cambio de brillo al tocarlo */
+.menu-gris a:hover {
+    opacity: 0.9;
+}
  /* 5. Submenú de Categorías */
  .sub-menu {
    display: flex;
