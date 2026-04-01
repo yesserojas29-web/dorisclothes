@@ -107,7 +107,6 @@
     background-color: #22398e;
     transition: width 0.3s ease;
 }
-
 /* --- EFECTO HOVER --- */
 /* Cuando pasas el mouse, se pone azul y sale la línea */
 .menu-link:hover {
@@ -563,20 +562,44 @@
     transform: scale(1.1);
 }
  .btn-ver-mas {
-   position: absolute;
-   top: -10px;
-   /* lift above top of card */
-   right: 10px;
-   /* align right edge */
-   font-size: 12px;
-   background: white;
-   padding: 4px 8px;
-   border-radius: 4px;
-   border: 1px solid black;
-   z-index: 3;
-   /* above everything */
- }
+    position: absolute;
+    top: -10px;      /* Se mantiene elevado sobre la tarjeta */
+    right: 10px;
+    z-index: 3;
+    
+    /* --- ESTRUCTURA --- */
+    padding: 4px 12px;      /* Un poco más de aire a los lados */
+    border-radius: 20px;    /* Cambiado a 20px para que sea redondeado como el otro */
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    
+    /* --- ESTADO INICIAL (NEGRO) --- */
+    background-color: white; /* Fondo blanco para que no se vea transparente sobre la foto */
+    color: black;
+    border: 1px solid black;
+    font-weight: normal;
+    
+    transition: all 0.3s ease; /* La clave del efecto suave */
+}
 
+/* --- ESTADO HOVER (EFECTO AZUL DORIS) --- */
+.btn-ver-mas:hover {
+    /* Texto al azul 100% y Negrita */
+    color: #1f3c8a; 
+    font-weight: bold;
+    
+    /* Borde al azul 100% */
+    border-color: #1f3c8a; 
+    
+    /* Fondo al azul con 10% de opacidad */
+    /* Usamos el fondo blanco de base + el tinte azul encima */
+    background-color: rgba(31, 60, 138, 0.1); 
+    
+    /* Un pequeño ajuste para que resalte más sobre la imagen */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
  .tarjeta-producto h3 {
    font-size: 16px;
    margin: 10px 0;
