@@ -11,6 +11,19 @@
     <div class="scroll-container">
       <h3 class="scroll-text">Confeccionamos el outfit que deseas para ti </h3>
     </div>
+     <!-- 4. JAVASCRIPT (agregado aquí) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. Scrolling text infinito suave
+  const scrollText = document.querySelector('.scroll-text');
+  if (scrollText) {
+    const originalText = scrollText.textContent;
+    scrollText.textContent = originalText + ' • ' + originalText + ' • ';
+    
+    // Ajustar velocidad
+    const textWidth = scrollText.scrollWidth;
+    scrollText.style.animationDuration = `${textWidth / 50}s`;
+  }
   </header>
    <nav class="nav-principal">
       <div class="buscador-contenedor">
@@ -372,5 +385,6 @@
         <a href="https://ejemplo.com">2026 Doris. Todos los derechos resevados</a>
       </div>
     </footer>
+  </script>
   </body>
 </html>
