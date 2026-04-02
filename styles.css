@@ -397,53 +397,111 @@
    font-weight: normal;
  }
 
- /* 6. Carrusel Principal */
- .contenedor-carrusel {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin-bottom: 40px;
- }
+/* Contenedor principal */
+.contenedor-gemelo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0; /* Pegados se ve más moderno, como un catálogo */
+  padding: 60px 0;
+}
 
- .carrusel {
-   /* quitar fondo gris, mantener solo el contenido */
-   background-color: transparent;
-   border-radius: 20px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 20px 40px;
-   width: 80%;
-   max-width: 1000px;
-   height: 300px;
- }
+.cuadrado-imagen, .cuadrado-texto {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
 
- .flecha {
-   font-size: 40px;
-   font-weight: bold;
-   cursor: pointer;
- }
+/* --- TEXTO ENRIQUECIDO --- */
+.cuadrado-texto {
+  background-color: #f9f9f9; /* Gris casi blanco muy elegante */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+}
 
- .imagen-central {
-   /* expandir para ocupar mayor espacio del carrusel */
-   flex: 1 1 auto;
-   height: 100%;
-   /* quitar color de fondo para que la imagen ocupe toda la forma */
-   background-color: transparent;
-   border-radius: 20px;
-   overflow: hidden;
-   /* ensure image doesn't overflow */
-   max-width: 500px;
-   /* opcional, controla tamaño máximo */
- }
+.contenido-interno {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: aparecerDerecha 1s forwards ease-out;
+}
 
- .imagen-central img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   /* keep aspect ratio while filling */
-   display: block;
- }
+.categoria-tag {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.7rem;
+  color: #888;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.texto-serif-azul {
+  font-family: serif;
+  color: #22398e;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+}
+
+.subtitulo-serif {
+  font-family: serif;
+  font-style: italic;
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.linea-decorativa {
+  width: 50px;
+  height: 2px;
+  background-color: #22398e;
+  margin: 0 auto 30px;
+}
+
+.btn-explorar {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #22398e;
+  border: 1px solid #22398e;
+  padding: 12px 25px;
+  transition: all 0.3s;
+}
+
+.btn-explorar:hover {
+  background-color: #22398e;
+  color: white;
+}
+
+/* Animación */
+@keyframes aparecerDerecha {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Imagen con Hover (Igual que antes) */
+.imagen-hover {
+  width: 100%;
+  height: 100%;
+  background-image: url('imagen_principal\ \(1\).jpg');
+  background-size: cover;
+  background-position: center;
+  transition: 0.6s ease-in-out;
+}
+.cuadrado-imagen:hover .imagen-hover {
+  background-image: url('imagen_principal\ \(2\).jpg');
+  transform: scale(1.05);
+}
 
  .indicadores {
    display: flex;
