@@ -1243,51 +1243,63 @@ body {
     transition: width 0.3s ease;
 }
 /* ============================================================
-   ESTILOS PARA EL MENÚ HAMBURGUESA (SÓLO MÓVIL)
+   ESTILOS PARA EL MENÚ HAMBURGUESA (CORREGIDO SIN CHECKBOX)
    ============================================================ */
 
-/* Ocultamos el botón y el checkbox en PC para que no dañen nada */
-#menu-toggle, .boton-hamburguesa {
+/* 1. OCULTAR TODO EN PC: Para que tu diseño original no cambie */
+#menu-toggle, 
+.boton-hamburguesa {
     display: none;
 }
 
+/* 2. CONFIGURACIÓN SOLO PARA MÓVIL */
 @media screen and (max-width: 768px) {
-    /* Mostramos el botón de 3 rayitas */
+    
+    /* ELIMINA EL CUADRADO BLANCO DEL CHECKBOX */
+    #menu-toggle {
+        display: none !important;
+    }
+
+    /* DISEÑO DEL BOTÓN (LAS 3 RAYITAS) */
     .boton-hamburguesa {
-        display: flex;
+        display: flex !important; /* Aparece solo en móvil */
         flex-direction: column;
         justify-content: space-between;
         width: 30px;
-        height: 22px;
-        margin: 20px auto; /* Lo centra debajo del logo */
+        height: 20px;
+        margin: 20px auto; /* Centrado bajo el logo */
         cursor: pointer;
     }
 
+    /* Las líneas de la hamburguesa */
     .boton-hamburguesa span {
         width: 100%;
         height: 3px;
-        background-color: #22398e; /* Tu azul Doris */
-        border-radius: 2px;
+        background-color: #22398e; /* Tu azul característico */
+        border-radius: 10px;
+        transition: 0.3s;
     }
 
-    /* Ocultamos el contenedor de los menús por defecto */
+    /* OCULTAR MENÚS HASTA QUE SE TOQUE LA HAMBURGUESA */
     .nav-movil-container {
         display: none; 
         flex-direction: column;
         width: 100%;
+        background-color: white;
     }
 
-    /* Cuando haces clic en la hamburguesa, el menú aparece */
+    /* LA MAGIA: Si el checkbox (invisible) se activa, muestra el menú */
     #menu-toggle:checked ~ .nav-movil-container {
-        display: flex;
+        display: flex !important;
     }
 
-    /* Convertimos los menús en listas verticales centradas */
+    /* AJUSTES DE TUS MENÚS EN MÓVIL (LISTA VERTICAL) */
     .menu-gris {
         flex-direction: column !important;
         height: auto !important;
         padding: 20px !important;
         gap: 15px !important;
+        text-align: center;
     }
 
     .sub-menu {
@@ -1298,7 +1310,7 @@ body {
         border-bottom: 2px solid #22398e !important;
     }
 
-    /* Mantenemos tus animaciones de PC (Zoom y Negrita) */
+    /* MANTENER TUS ANIMACIONES DE PC (Zoom y Negrita) */
     .sub-menu h3:hover {
         font-weight: bold !important;
         transform: scale(1.1) !important;
@@ -1308,9 +1320,7 @@ body {
         color: #22398e !important;
     }
 
-    /* Evitamos el zoom pequeño del celular */
+    /* EVITAR QUE LA PANTALLA SE VEA CHIQUITA */
     html, body {
         width: 100% !important;
         overflow-x: hidden !important;
-    }
-}
