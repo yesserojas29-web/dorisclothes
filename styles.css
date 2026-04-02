@@ -1324,3 +1324,116 @@ body {
     html, body {
         width: 100% !important;
         overflow-x: hidden !important;
+        /* ============================================================
+   ESTILOS EXCLUSIVOS PARA MÓVIL (768px o menos)
+   ============================================================ */
+
+/* Ocultamos el checkbox y la hamburguesa en la versión de PC */
+#menu-toggle, .boton-hamburguesa {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    /* 1. Alineación en una sola línea (Hamb/Lupa - Logo - Iconos) */
+    .nav-principal {
+        display: flex !important;
+        flex-direction: row !important; 
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 15px !important; /* Espacio reducido para móvil */
+        height: 70px !important;
+    }
+
+    /* 2. Bloque Izquierdo: Hamburguesa + Lupa */
+    .buscador-contenedor {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px;
+        flex: 1 !important;
+    }
+
+    #menu-toggle {
+        display: none !important; /* Escondemos el cuadradito blanco */
+    }
+
+    .boton-hamburguesa {
+        display: flex !important; /* Aparece solo en móvil */
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .boton-hamburguesa span {
+        width: 100%;
+        height: 3px;
+        background-color: #22398e;
+        border-radius: 5px;
+    }
+
+    /* Convertimos el buscador en un círculo (Lupita) */
+    .buscador {
+        width: 35px !important;
+        height: 35px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        font-size: 0 !important; /* Esconde la palabra "Buscar" */
+        background: #e0e0e0 url('icono_lupa.png') no-repeat center !important;
+        background-size: 18px !important;
+        border: none !important;
+    }
+
+    /* 3. Bloque Centro: Logo Redimensionado */
+    .logo-contenedor {
+        flex: 1.5 !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .icono-logo {
+        width: 120px !important; /* En móvil medirá 120px, en PC sigue en 250px */
+        max-width: 120px !important;
+        height: auto !important;
+    }
+
+    /* 4. Bloque Derecho: Iconos de Usuario, Carrito y Fav */
+    .iconos-contenedor {
+        display: flex !important;
+        flex: 1 !important;
+        justify-content: flex-end !important;
+        gap: 8px !important;
+    }
+
+    .iconos-contenedor img {
+        width: 26px !important; /* En móvil miden 26px, en PC siguen en 60px */
+        height: auto !important;
+    }
+
+    /* 5. Menú Desplegable (Lo que sale al tocar las 3 rayas) */
+    .nav-movil-container {
+        display: none; 
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        top: 70px; /* Se posiciona justo debajo de la barra */
+        left: 0;
+        z-index: 999;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Mostrar menú cuando el checkbox está activo */
+    #menu-toggle:checked ~ .nav-movil-container {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    /* Ajuste de listas dentro del menú móvil */
+    .menu-gris, .sub-menu {
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 20px !important;
+        gap: 15px !important;
+        text-align: center !important;
+    }
+}
