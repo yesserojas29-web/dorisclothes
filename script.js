@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- 1. LÓGICA DEL TEXTO SCROLLING ---
+    // --- 1. LÓGICA DEL TEXTO SCROLLING (BARRA SUPERIOR) ---
     const scrollText = document.querySelector('.scroll-text');
     if (scrollText) {
         const originalText = scrollText.textContent.trim();
@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const contenedorMenu = document.querySelector('.titulo-coleccion');
     const links = document.querySelectorAll('.menu-link');
 
-    // Aseguramos que al cargar, ninguno tenga la clase active a menos que sea necesario
     links.forEach(link => link.classList.remove('active'));
 
     if (contenedorMenu) {
@@ -27,8 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     ratingContainers.forEach(container => {
         const stars = container.querySelectorAll('.star');
-        
-        // Inicializar: si no hay rating, asegurar que están grises
         const initialRating = container.getAttribute('data-rating') || 0;
         updateStars(stars, initialRating);
 
@@ -67,4 +64,53 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // --- 4. ANIMACIÓN DEL RECTÁNGULO AZUL Y TEXTO AL HACER SCROLL ---
+    const observerOptions = {
+        threshold: 0.2 // Se activa cuando se ve el 20% del elemento
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // PRIMERO: Animamos el contenedor (el rectángulo azul)
+                entry.target.classList.add('aparecer');
+                
+                // SEGUNDO: Animamos el h2 que está adentro por si acaso tiene su propia clase
+                const titulo = entry.target.querySelector('h2');
+                if (titulo) {
+                    titulo.classList.add('aparecer');
+                }
+                
+                // Una vez que se anima, dejamos de observarlo para mejorar el rendimiento
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Seleccionamos el contenedor del rectángulo azul
+    const contenedorTexto = document.querySelector('.texto-video');
+    if (contenedorTexto) {
+        observer.observe(contenedorTexto);
+    }
+    // --- ANIMACIÓN DE SUBTÍTULO (EFECTO SUBIDA) ---
+const observerSubtitulo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Buscamos el h1 dentro del divisor
+            const h1 = entry.target.querySelector('h1');
+            if (h1) {
+                h1.classList.add('revelar');
+            }
+            // Dejamos de observar para que no se repita la animación
+            observerSubtitulo.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 }); // Se activa cuando se ve la mitad del elemento
+
+// Empezamos a vigilar el contenedor del subtítulo
+const divSubtitulo = document.querySelector('.divisor-subtitulo');
+if (divSubtitulo) {
+    observerSubtitulo.observe(divSubtitulo);
+}
 });

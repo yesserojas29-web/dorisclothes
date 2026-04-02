@@ -4,6 +4,7 @@
    font-family: serif;
    margin: 0;
    color: black;
+   overflow-x: hidden;
  }
 
  /* Hacemos que todos los enlaces sean negros y sin subrayado */
@@ -149,22 +150,15 @@
     padding: 20px 0;
     flex-wrap: wrap;        /* Si no caben, bajan a la siguiente línea */
 }
-/* TRUCO PARA EVITAR MOVIMIENTO DE TEXTO AL PONER NEGRITA */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
 .sub-menu h3 {
     margin: 0;
     font-size: 16px;
     font-weight: normal;    /* Estado inicial: letra fina */
     transition: all 0.3s ease; /* Suaviza tanto el zoom como el cambio de peso */
 }
-/* TRUCO PARA EVITAR MOVIMIENTO DE TEXTO AL PONER NEGRITA */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
+
 .sub-menu a {
     text-decoration: none;
     color: #333;            /* Color gris oscuro/negro */
@@ -679,7 +673,23 @@
    margin-bottom: 40px;
    text-align: center;
  }
-
+/* LOS ELEMENTOS INDIVIDUALES (LAS TARJETAS) */
+.grid-categorias > * {
+    /* Mantenemos tus estilos de tamaño y forma para que no cambien */
+    cursor: pointer; /* Cambia el cursor a mano al pasar el mouse */
+    
+    /* --- ANIMACIÓN DE ZOOM (SUAVE) --- */
+    /* El target del zoom es 'transform', y la duración es 0.3 segundos */
+    transition: transform 0.3s ease-in-out !important;
+}
+/* --- EFECTO ZOOM AL PASAR EL MOUSE (HOVER) --- */
+.grid-categorias > *:hover {
+    /* Agrandamos la tarjeta un 10% (scale 1.1) sin cambiar nada más */
+    transform: scale(1.1) !important;
+    
+    /* Opcional: Un pequeño brillo o sombra para resaltarla aún más */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra suave */
+}
  .caja-img-cat {
    background-color: transparent;
    width: 100%;
@@ -716,17 +726,27 @@
    margin-bottom: 40px;
  }
 
- .divisor-subtitulo h1 {
-   /* sólo el texto, sin barra de fondo */
-   color: #22398e;
-   background-color: transparent;
-   display: inline;
-   width: auto;
-   height: auto;
-   line-height: normal;
-   border-radius: 0;
-   margin: 0;
- }
+.divisor-subtitulo h1 {
+    color: #22398e;
+    background-color: transparent;
+    display: inline-block; /* Cambiado de inline a inline-block para que pueda "subir" */
+    width: auto;
+    height: auto;
+    line-height: normal;
+    border-radius: 0;
+    margin: 0;
+
+    /* ESTADO INICIAL: 30px más abajo e invisible */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 1.2s ease-out, opacity 1s ease-out;
+}
+
+/* CLASE QUE ACTIVA LA SUBIDA */
+.divisor-subtitulo h1.revelar {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
 
  /* 11. Beneficios (Iconos) */
  .beneficios {
@@ -737,23 +757,32 @@
    margin-bottom: 60px;
    text-align: center;
  }
+/* --- CAJAS DE BENEFICIOS CON EFECTO ZOOM --- */
+.beneficios div {
+    background-color: #1f3c8a;
+    border-radius: 10px;
+    padding: 15px 20px;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    
+    /* --- ANIMACIÓN DE ZOOM (SUAVE) --- */
+    transition: transform 0.3s ease-in-out !important;
+    cursor: pointer;
+}
 
- /* each benefit box has fixed size, same color, rounded corners */
- .beneficios div {
-   background-color: #1f3c8a;
-   /* nuevo color solicitado */
-   /* no border per user request */
-   border-radius: 10px;
-   padding: 15px 20px;
-   width: 160px;
-   height: 160px;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   box-sizing: border-box;
- }
-
+/* EFECTO HOVER: ZOOM LIGERO */
+.beneficios div:hover {
+    /* Un zoom sutil del 5% (1.05) para que no sea muy agresivo */
+    transform: scale(1.05) !important;
+    
+    /* Opcional: una sombra sutil para dar profundidad */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
  .beneficios div img {
    display: block;
    margin: 0 auto;
@@ -786,45 +815,121 @@
    align-items: center;
  }
 
- .btn-gris {
-   display: inline-block;
-   background-color: #e0e0e0;
-   padding: 8px 25px;
-   border-radius: 20px;
-   margin-top: 10px;
- }
+ /* --- BOTÓN AZUL CLARITO CON CAMBIO DE COLOR --- */
+.btn-lightblue {
+    display: inline-block;
+    background-color: #8aa9d9 !important; /* Azul clarito original */
+    color: #203c8b !important;            /* Texto azul oscuro original */
+    
+    padding: 8px 25px !important;
+    border-radius: 20px !important;
+    margin-top: 10px !important;
+    
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
 
- /* 13. Sección de Imagen/Video y Contacto Final */
- .seccion-video {
-   background-color: transparent;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 40px;
-   padding: 40px;
-   margin: 0 40px 60px 40px;
-   border-radius: 10px;
- }
+    /* TRANSICIÓN SUAVE DE COLORES */
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+}
 
- .caja-imagen-video {
-   background-color: #222;
-   width: 700px;
-   height: 400px;
-   border-radius: 10px;
- }
+/* EFECTO HOVER: INVERSIÓN DE COLORES (SIN ZOOM) */
+.btn-lightblue:hover {
+    background-color: #203c8b !important; /* El fondo cambia a azul oscuro */
+    color: #f4eedb !important;            /* El texto cambia a crema */
+    
+    /* Nos aseguramos de que se quede quieto */
+    transform: none !important; 
+}
+ /* --- EL RECTÁNGULO AZUL (EXTREMO A EXTREMO) --- */
+.texto-video {
+    background-color: #1f3c8a !important; /* El azul solicitado */
+    width: 100vw !important;              /* Forzar ancho total de pantalla */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;                   /* Truco para centrar el ancho 100vw */
+    margin-right: -50vw;
+    padding: 25px 0 !important;
+    overflow: hidden;                     /* Para que el texto no se salga al animar */
+    display: block !important;
+}
 
- .texto-video h2 {
-   font-size: 28px;
-   text-align: left;
-   color: #f4eedb;
-   background-color: #1f3c8a;
-   padding: 10px 20px;
- }
+.texto-video h2 {
+    color: #f4eedb !important;            /* El color crema solicitado */
+    margin: 0 !important;
+    font-size: 28px;
+    text-align: center;
+    border-radius: 0 !important;          /* Rectángulo recto sin curvas */
+    font-family: serif;
 
- .seccion-final {
-   text-align: center;
-   padding: 0 40px 60px 40px;
- }
+    /* ESTADO INICIAL PARA LA ANIMACIÓN JS */
+    opacity: 0;
+    transform: translateX(-100%);         /* Empieza fuera a la izquierda */
+    transition: transform 1.5s ease-out, opacity 1s ease-out;
+}
+
+/* Esta es la clase que tu JavaScript debe añadir al h2 */
+.texto-video h2.aparecer {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* --- EL VIDEO (SE QUEDA QUIETO Y CENTRADO) --- */
+.seccion-video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    background-color: transparent;
+}
+.caja-imagen-video {
+    width: 700px;
+    height: 400px;
+    border-radius: 20px; /* El video sí mantiene sus bordes redondeados */
+    object-fit: cover;
+}
+.btn-contacto {
+    /* --- COLORES ORIGINALES --- */
+    background-color: #22398e !important;
+    color: #f4eedb !important;
+    border: none !important;
+    font-weight: bold !important;
+    border-radius: 30px !important;
+    
+    /* --- AJUSTE DE TAMAÑO (MÁS PEQUEÑO) --- */
+    padding: 10px 25px !important; /* Antes era 15px 40px */
+    font-size: 15px !important;    /* Antes era 18px */
+    
+    /* --- COMPORTAMIENTO --- */
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+
+    /* --- ANIMACIÓN DE ZOOM --- */
+    transition: transform 0.3s ease !important;
+}
+
+/* EFECTO ZOOM AL PASAR EL MOUSE (HOVER) */
+.btn-contacto:hover {
+    transform: scale(1.1) !important; /* Crece un 10% */
+    display: block;
+    width: 100%;       /* Ocupa todo el ancho ahora que el body no tiene margen */
+    box-sizing: border-box;
+
+    /* ESTADO INICIAL PARA LA ANIMACIÓN */
+    opacity: 0;
+    transform: translateX(-100%); /* Empieza totalmente fuera a la izquierda */
+    transition: transform 1.5s ease-out, opacity 1s ease-out;
+}
+
+/* Clase que activa el JavaScript al hacer scroll */
+.texto-video h2.aparecer {
+    opacity: 1;
+    transform: translateX(0);
+}
 
  .btn-contacto {
    display: inline-block;
@@ -833,26 +938,183 @@
    border-radius: 4px;
    font-size: 16px;
  }
+/* --- FOOTER AISLADO --- */
+.footer-doris-final {
+    background-color: rgba(32, 60, 139, 0.1) !important;
+    padding: 50px 5% 20px 5% !important;
+    display: block !important; /* Evitamos conflictos con Flex/Grid del body */
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-family: serif;
+}
 
-      /* 14. PIE DE PÁGINA (FOOTER) */
-      .pie-de-pagina {
-        background-color: #ffffff;
-        padding: 40px 60px;
-      }
+/* Forzar que el texto del footer no afecte al resto de la web */
+.footer-doris-final h2, 
+.footer-doris-final a, 
+.footer-doris-final p {
+    color: #203c8b !important;
+    text-decoration: none !important;
+    margin: 0 0 10px 0;
+    display: block;
+}
 
- .footer-superior {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   border-bottom: 2px solid #f4eedb;
-   padding-bottom: 20px;
-   margin-bottom: 30px;
- }
+.fd-bloque-superior {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(32, 60, 139, 0.2);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
 
- .footer-superior h2 {
-   font-weight: normal;
-   margin-bottom: 10px;
- }
+.fd-linea-input {
+    border-bottom: 2px solid #203c8b;
+    display: flex;
+    width: 250px;
+}
+
+.fd-input-clean {
+    background: transparent !important;
+    border: none !important;
+    padding: 5px;
+    outline: none;
+    color: #203c8b !important;
+    flex-grow: 1;
+}
+
+.fd-bloque-columnas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.fd-col-titulo {
+    font-weight: bold !important;
+    font-size: 18px !important;
+}
+
+.fd-bloque-legal {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(32, 60, 139, 0.1);
+    padding-top: 20px;
+}
+
+.fd-bloque-legal a {
+    font-size: 12px !important;
+    text-decoration: underline !important;
+}
+
+.fd-copyright {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+    opacity: 0.6;
+}
+
+/* Ajuste Instagram */
+.pie-social {
+    text-align: right;
+}
+
+.formulario-boletin {
+  display: flex;
+  border-bottom: 2px solid #203c8b;
+  width: 320px;
+  margin-top: 10px;
+}
+
+.formulario-boletin input {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  outline: none;
+  width: 100%;
+}
+
+/* 2. SECCIÓN DE COLUMNAS (Mantiene las 4 en fila) */
+.footer-columnas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.footer-columnas h2 {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.footer-columnas h3 {
+  font-weight: normal;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-columnas a:hover {
+  text-decoration: underline !important;
+}
+
+/* 3. SECCIÓN INFERIOR (LEGAL) */
+.footer-inferior {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  border-top: 1px solid rgba(32, 60, 139, 0.2);
+  padding-top: 25px;
+}
+
+.footer-inferior h3 a {
+  font-size: 13px;
+  text-decoration: underline !important;
+}
+
+/* 4. TEXTO FINAL */
+.footer-texto-final {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* AJUSTE DEL FORMULARIO */
+.formulario-boletin {
+    display: flex;
+    border-bottom: 2px solid #203c8b;
+    width: 300px;
+}
+
+.formulario-boletin input {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+}
+
+/* AJUSTE PARA EL FORMULARIO (Si no lo tenías) */
+.formulario-boletin {
+    display: flex;
+    border-bottom: 2px solid #203c8b;
+    width: 350px;
+}
+
+.formulario-boletin input {
+    background: transparent;
+    border: none;
+    color: #203c8b;
+    padding: 10px 5px;
+    outline: none;
+    flex-grow: 1;
+}
+
+.formulario-boletin button {
+    background: transparent;
+    border: none;
+    color: #203c8b;
+    cursor: pointer;
+    font-size: 20px;
+}
 
  .formulario-boletin {
    display: flex;
@@ -860,7 +1122,7 @@
 
  .formulario-boletin input {
    padding: 10px;
-   border: 1px solid black;
+   border: 1px solid 203c8b;
    width: 250px;
    border-radius: 4px 0 0 4px;
    font-family: serif;
@@ -868,7 +1130,7 @@
 
  .formulario-boletin button {
    padding: 10px 20px;
-   background-color: black;
+   background-color: #203c8b;
    color: white;
    /* El texto del botón sí lo dejamos blanco para que se lea */
    border: none;
@@ -876,49 +1138,7 @@
    border-radius: 0 4px 4px 0;
  }
 
- .footer-columnas {
-   display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   gap: 20px;
-   margin-bottom: 30px;
- }
-
- .footer-columnas h3 {
-   margin-bottom: 15px;
- }
-
- .footer-columnas a {
-   display: block;
-   margin-bottom: 8px;
-   font-weight: normal;
-   text-decoration: underline;
- }
-
- /* Subrayado para notar que son enlaces */
-
- .footer-inferior {
-   display: flex;
-   justify-content: center;
-   gap: 30px;
-   border-top: 2px solid #f4eedb;
-   padding-top: 20px;
- }
-
- .footer-inferior h3 {
-   font-weight: normal;
-   font-size: 14px;
- }
-
- .footer-texto-final {
-   text-align: center;
-   margin-top: 20px;
-   font-size: 14px;
- }
-
- .footer-texto-final a {
-   text-decoration: underline;
- }
-
+ 
 /* --- Estructura de la Barra de Navegación --- */
 .nav-principal {
     display: flex;
