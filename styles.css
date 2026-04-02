@@ -1249,4 +1249,25 @@
         width: 100%;
         justify-content: center; /* Centramos todo en móvil */
     }
+    /* Estilos normales para PC aquí arriba */
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en PC */
+}
+
+/* --- CODIGO RESPONSIVE --- */
+@media (max-width: 768px) {
+    /* Todo lo que escribas aquí adentro solo se aplicará en Celulares/Tablets */
+    
+    .grid-productos {
+        grid-template-columns: repeat(2, 1fr); /* En el celular solo se ven 2 columnas */
+    }
+
+    .fd-bloque-columnas {
+        display: block; /* En lugar de estar al lado, se ponen una debajo de otra */
+    }
+
+    .icono-logo {
+        width: 150px; /* Logo más pequeño para que quepa */
+    }
 }
