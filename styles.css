@@ -1242,11 +1242,8 @@ body {
     height: auto;
     transition: width 0.3s ease;
 }
-/* ============================================================
-   ESTILOS EXCLUSIVOS PARA MÓVIL (Sustituye todo el @media anterior)
-   ============================================================ */
-
-/* 1. OCULTAR SIEMPRE EN PC */
+/* 1. OCULTAR ELEMENTOS MÓVILES EN PC */
+.solo-movil, 
 #menu-toggle, 
 .boton-hamburguesa {
     display: none;
@@ -1254,7 +1251,7 @@ body {
 
 @media screen and (max-width: 768px) {
     
-    /* 2. BARRA PRINCIPAL: Una sola línea */
+    /* 2. AJUSTE DE LA BARRA SIN AFECTAR PC */
     .nav-principal {
         display: flex !important;
         flex-direction: row !important;
@@ -1262,10 +1259,10 @@ body {
         align-items: center !important;
         padding: 10px 15px !important;
         height: 70px !important;
-        position: relative; /* Importante para el menú desplegable */
+        position: relative;
     }
 
-    /* 3. IZQUIERDA: Hamburguesa y Lupa juntas */
+    /* 3. LADO IZQUIERDO: Hamburguesa + Lupa */
     .buscador-contenedor {
         display: flex !important;
         align-items: center !important;
@@ -1273,27 +1270,24 @@ body {
         flex: 1 !important;
     }
 
-    #menu-toggle {
-        display: none !important; /* Esconde el cuadradito blanco */
-    }
-
+    /* Hamburguesa con TU AZUL #22398e */
     .boton-hamburguesa {
-        display: flex !important; /* Solo una hamburguesa aquí */
+        display: flex !important;
         flex-direction: column;
         justify-content: space-between;
         width: 25px;
         height: 18px;
         cursor: pointer;
-        z-index: 1001;
     }
 
     .boton-hamburguesa span {
         width: 100%;
         height: 3px;
-        background-color: #22398e;
+        background-color: #22398e; /* Tu color original */
         border-radius: 5px;
     }
 
+    /* Buscador circular */
     .buscador {
         width: 35px !important;
         height: 35px !important;
@@ -1304,36 +1298,18 @@ body {
         border: none !important;
     }
 
-    /* 4. CENTRO: Logo */
-    .logo-contenedor {
-        flex: 1.5 !important;
-        display: flex !important;
-        justify-content: center !important;
-    }
+    /* 4. LOGO Y ICONOS (Redimensionados solo para móvil) */
+    .logo-contenedor { flex: 1.5 !important; display: flex !important; justify-content: center !important; }
+    .icono-logo { width: 110px !important; height: auto !important; }
+    
+    .iconos-contenedor { flex: 1 !important; display: flex !important; justify-content: flex-end !important; gap: 8px !important; }
+    .iconos-contenedor img { width: 24px !important; height: auto !important; }
 
-    .icono-logo {
-        width: 110px !important; /* Ajuste para que no empuje a los lados */
-        height: auto !important;
-    }
-
-    /* 5. DERECHA: Iconos de usuario/carrito */
-    .iconos-contenedor {
-        flex: 1 !important;
-        display: flex !important;
-        justify-content: flex-end !important;
-        gap: 8px !important;
-    }
-
-    .iconos-contenedor img {
-        width: 24px !important;
-        height: auto !important;
-    }
-
-    /* 6. EL MENÚ (LO QUE ESTABA OCULTO) */
+    /* 5. EL MENÚ DESPLEGABLE */
     .nav-movil-container {
-        display: none; /* Empieza oculto */
+        display: none; /* Se oculta por defecto */
         position: absolute;
-        top: 70px; /* Justo debajo de la barra */
+        top: 70px;
         left: 0;
         width: 100%;
         background-color: white;
@@ -1342,20 +1318,12 @@ body {
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    /* LA LLAVE: Esto hace que el menú aparezca al tocar la hamburguesa */
-    /* Usamos :has o seleccionamos por el ancestro común */
-    body:has(#menu-toggle:checked) .nav-movil-container,
-    #menu-toggle:checked ~ .nav-movil-container,
-    .nav-principal:has(#menu-toggle:checked) + .nav-movil-container {
-        display: flex !important;
-    }
-
-    /* Si lo anterior no funciona por la estructura de tu HTML, usa este: */
+    /* Mostrar menú al activar checkbox */
     #menu-toggle:checked ~ .nav-movil-container {
         display: flex !important;
     }
 
-    /* 7. ESTILOS INTERNOS DEL MENÚ (Lista vertical) */
+    /* 6. MANTENER TUS ESTILOS DE TEXTO Y HOVER */
     .menu-gris, .sub-menu {
         display: flex !important;
         flex-direction: column !important;
@@ -1364,13 +1332,30 @@ body {
         text-align: center !important;
     }
 
-    .menu-gris {
-        background-color: #f0f0f0; /* O el color que tenías */
+    /* Aplicamos tus efectos de Hover (Zoom y Negrita) en el menú móvil */
+    .nav-movil-container .sub-menu h3:hover {
+        font-weight: bold !important;
+        transform: scale(1.1) !important;
     }
 
-    .sub-menu h3:hover {
-        transform: scale(1.1);
-        font-weight: bold;
+    .nav-movil-container .sub-menu h3:hover a {
+        color: #22398e !important;
+    }
+
+    /* Estilo para los enlaces del menú gris en móvil */
+    .menu-gris h2 a {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s;
+    }
+
+    .menu-gris h2 a:hover {
         color: #22398e;
+    }
+
+    /* Separador blanco que tenías en el HTML */
+    .separador-blanco {
+        color: #ccc;
+        padding: 0 5px;
     }
 }
