@@ -1231,43 +1231,41 @@
     height: auto;
     transition: width 0.3s ease;
 }
-
-/* --- RESPONSIVO PARA MÓVIL --- */
+/* ============================================
+   CÓDIGO RESPONSIVE (TODO EN UNA SOLA LLAVE)
+   ============================================ */
 @media (max-width: 768px) {
+    /* 1. Ajustes de Navegación */
     .nav-principal {
-        flex-direction: column; /* En móvil, ponemos uno debajo del otro */
+        flex-direction: column; 
         gap: 15px;
         padding: 15px;
-    }
-
-    .icono-logo {
-        width: 180px; /* Logo más pequeño en celulares */
     }
 
     .buscador-contenedor, 
     .iconos-contenedor {
         width: 100%;
-        justify-content: center; /* Centramos todo en móvil */
-    }
-    /* Estilos normales para PC aquí arriba */
-.grid-productos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas en PC */
-}
-
-/* --- CODIGO RESPONSIVE --- */
-@media (max-width: 768px) {
-    /* Todo lo que escribas aquí adentro solo se aplicará en Celulares/Tablets */
-    
-    .grid-productos {
-        grid-template-columns: repeat(2, 1fr); /* En el celular solo se ven 2 columnas */
-    }
-
-    .fd-bloque-columnas {
-        display: block; /* En lugar de estar al lado, se ponen una debajo de otra */
+        justify-content: center;
+        display: flex; /* Asegura que el centrado funcione */
     }
 
     .icono-logo {
-        width: 150px; /* Logo más pequeño para que quepa */
+        width: 150px !important; /* Logo más pequeño en celulares */
     }
-}
+
+    /* 2. Ajustes de Productos */
+    .grid-productos {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 columnas en celular */
+        padding: 10px; /* Menos espacio a los lados en móvil */
+    }
+
+    /* 3. Ajustes del Footer */
+    .fd-bloque-columnas {
+        display: block !important; /* Se ponen una debajo de otra */
+    }
+    
+    .fd-col {
+        margin-bottom: 20px;
+        text-align: center; /* Centramos el texto del footer en móvil */
+    }
+} /* <--- ESTA LLAVE CIERRA TODO EL RESPONSIVE */
