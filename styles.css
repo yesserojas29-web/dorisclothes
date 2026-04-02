@@ -265,65 +265,165 @@ body {
     color: #22398e;
     font-weight: normal; /* Ahora el activo solo se distingue por el azul y la línea */
 }
-/* --- 4. Menú Gris (Barra Azul Corregida) --- */
+
+/* --- 4. Menú Gris (Barra Azul) --- */
 .menu-gris {
     background-color: #22398e;
     display: flex;
-    justify-content: center; /* Centrado mejor para móvil */
+    justify-content: space-between;
     align-items: center;
-    min-height: 40px; 
+    height: 60px; 
     width: 100%;
-    padding: 10px 20px; /* Reducimos el padding de 60px a 20px */
+    padding: 0 60px;
     box-sizing: border-box;
-    flex-wrap: wrap;    /* <--- ¡ESTO ES VITAL! Permite que los links bajen si no caben */
-    gap: 15px;          /* Espacio entre los elementos cuando bajan */
+}
+/* Forzamos a que tanto los DIV como los H2 dentro del menú tengan el mismo estilo */
+.menu-gris div, 
+.menu-gris h2 {
+    margin: 0;
+    font-weight: normal; /* Sin negrita */
+    font-size: 20px;     /* <--- AJUSTA ESTE NÚMERO para cambiar el tamaño de todos a la vez */
+    display: flex;
+    align-items: center;
+}
+
+.menu-gris h2 {
+    font-weight: normal; /* Quitamos la negrita natural de los h2 */
+    font-size: 20px;
+    margin: 0;
+}
+
+.menu-gris a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal; /* Aseguramos que los enlaces sean finos */
+}
+/* --- 4. Menú Gris (Barra Azul con Interactividad) --- */
+.menu-gris {
+    background-color: #22398e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px; 
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
 }
 
 .menu-gris h2, 
 .menu-gris div {
     margin: 0;
     font-weight: normal;
-    font-size: 16px; /* Bajamos un poco el tamaño para que quepa mejor */
+    font-size: 18px;
     display: flex;
     align-items: center;
 }
-
-/* --- 5. Submenú de Categorías (Blusas, Tops, etc.) --- */
-.sub-menu {
+/* Contenedor específico para Mujeres | Niñas */
+.grupo-mujeres {
     display: flex;
-    justify-content: center;
-    gap: 15px; /* Reducimos el espacio entre categorías */
-    padding: 15px 10px;
-    border-bottom: 2px solid black;
-    margin-bottom: 40px;
-    flex-wrap: wrap; /* <--- Para que Blusas, Tops, etc. no se salgan de la pantalla */
+    align-items: center;
+    gap: 10px; /* Espacio entre Mujeres, la barra y Niñas */
 }
 
-.sub-menu h3 {
+/* Estilo del separador vertical blanco */
+.separador-blanco {
+    color: white;
+    font-size: 18px;
+    cursor: default;
+    user-select: none;
+}
+
+/* --- Efecto de línea blanca (Reutilizamos lo anterior) --- */
+.menu-gris a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+}
+
+.menu-gris a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.menu-gris a:hover::after {
+    width: 100%;
+}
+
+/* Quitamos márgenes extra de los h2 para que no desalineen la barra */
+.menu-gris h2 {
     margin: 0;
-    font-size: 14px; /* Un poco más pequeño para móvil */
+    font-size: 18px;
     font-weight: normal;
 }
+.menu-gris a {
+    color: white;
+    text-decoration: none;
+    position: relative;    /* NECESARIO para la línea */
+    padding-bottom: 4px;   /* Espacio para la línea blanca */
+    transition: opacity 0.3s ease;
+}
 
-/* --- Contenedor Gemelo (Imagen y Texto) --- */
-/* Arreglo para que en móvil no midan 500px fijos */
+/* --- LÍNEA BLANCA HORIZONTAL (Efecto Base) --- */
+.menu-gris a::after {
+    content: '';
+    position: absolute;
+    width: 0;              /* Empieza sin ancho */
+    height: 2px;           /* Grosor de la línea blanca */
+    bottom: 0;
+    left: 0;
+    background-color: white; /* Color BLANCO */
+    transition: width 0.3s ease; /* Efecto de deslizamiento */
+}
+
+/* --- EFECTO HOVER (Al pasar el mouse) --- */
+.menu-gris a:hover::after {
+    width: 100%;           /* La línea aparece al 100% */
+}
+
+/* Opcional: un pequeño cambio de brillo al tocarlo */
+.menu-gris a:hover {
+    opacity: 0.9;
+}
+ /* 5. Submenú de Categorías */
+ .sub-menu {
+   display: flex;
+   justify-content: center;
+   gap: 30px;
+   padding: 15px 20px;
+   border-bottom: 2px solid black;
+   margin-bottom: 40px;
+ }
+
+ .sub-menu h3 {
+   margin: 0;
+   font-size: 18px;
+   font-weight: normal;
+ }
+
+/* Contenedor principal */
 .contenedor-gemelo {
-    display: flex;
-    flex-wrap: wrap; /* En móvil, el texto se pone debajo de la imagen */
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0; /* Pegados se ve más moderno, como un catálogo */
+  padding: 60px 0;
 }
 
 .cuadrado-imagen, .cuadrado-texto {
-    width: 100%;      /* En móvil ocupan todo el ancho */
-    max-width: 500px; /* Pero en PC no pasan de 500px */
-    height: auto;     /* Que el alto se ajuste al contenido */
-    aspect-ratio: 1 / 1; /* Mantiene la forma cuadrada */
-    position: relative;
-    overflow: hidden;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
 }
+
 /* --- TEXTO ENRIQUECIDO --- */
 .cuadrado-texto {
   background-color: #f9f9f9; /* Gris casi blanco muy elegante */
