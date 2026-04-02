@@ -1242,3 +1242,62 @@ body {
     height: auto;
     transition: width 0.3s ease;
 }
+/* ============================================================
+   RESPONSIVIDAD AUTOMÁTICA (Móvil y Tablet)
+   ============================================================ */
+@media screen and (max-width: 768px) {
+
+    /* 1. Cabecera (Logo e Iconos) */
+    .nav-principal {
+        flex-direction: column !important; /* Logo arriba, iconos abajo */
+        height: auto !important;
+        padding: 15px !important;
+        gap: 15px;
+    }
+
+    .iconos-contenedor img {
+        width: 40px !important; /* Iconos más pequeños */
+    }
+
+    /* 2. Barra Azul (menu-gris) */
+    .menu-gris {
+        flex-direction: column !important; /* Los textos se apilan verticalmente */
+        height: auto !important;
+        padding: 20px !important;
+        gap: 10px;
+    }
+
+    .menu-gris div, 
+    .menu-gris h2 {
+        font-size: 16px !important; /* Letra un poco más pequeña */
+        justify-content: center;
+    }
+
+    .separador-blanco {
+        display: none; /* Quitamos la barra vertical "|" porque ya están uno sobre otro */
+    }
+
+    /* 3. Submenú de Categorías */
+    .sub-menu {
+        flex-wrap: wrap !important; /* Permite que las palabras bajen al siguiente renglón */
+        justify-content: center !important;
+        gap: 15px !important;
+        padding: 10px !important;
+    }
+
+    .sub-menu h3 {
+        font-size: 15px !important;
+    }
+
+    /* 4. Título de Colección */
+    .titulo-coleccion h2 {
+        font-size: 18px !important;
+        flex-direction: column;
+        display: flex;
+        gap: 5px;
+    }
+    
+    .separador {
+        display: none; /* Quitamos el "|" en el título principal */
+    }
+}
