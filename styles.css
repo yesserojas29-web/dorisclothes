@@ -1,13 +1,22 @@
  /* --- ESTILOS GENERALES --- */
  /* Cambiamos la fuente a serif y el color general a negro */
+/* 1. RESET GENERAL (Añade esto arriba del todo para que nada se salga) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. TU BODY MEJORADO */
 body {
     font-family: serif;
     margin: 0;
     color: black;
-    /* --- Blindaje para que se vea bien en celular --- */
-    width: 100vw !important; 
+    /* --- Blindaje total para móvil --- */
+    width: 100% !important; 
     max-width: 100% !important; 
     overflow-x: hidden !important; 
+    position: relative;
 }
  /* Hacemos que todos los enlaces sean negros y sin subrayado */
  a {
@@ -1233,38 +1242,31 @@ body {
     height: auto;
     transition: width 0.3s ease;
 }
-/* ============================================
-   CÓDIGO RESPONSIVE (Blindado para Móvil)
-   ============================================ */
-@media (max-width: 768px) {
-    /* 1. Blindaje maestro de ancho visible */
-    body {
-        width: 100vw !important;
-        overflow-x: hidden !important;
+@media screen and (max-width: 768px) {
+    /* REGLA DE ORO: Nada puede medir más que el celular */
+    * {
+        max-width: 100vw !important;
     }
 
-    /* 2. Navegación: Logo y Elementos */
     .nav-principal {
         flex-direction: column !important;
-        gap: 10px !important;
         padding: 10px !important;
     }
 
     .icono-logo {
-        width: 150px !important; /* Achica el logo de Doris obligatoriamente */
+        width: 150px !important; /* Ahora sí se verá grande en el móvil */
     }
 
-    .iconos-contenedor, 
-    .buscador-contenedor {
-        width: 100% !important;
-        justify-content: center !important;
-        display: flex !important;
-    }
-
-    /* 3. Productos: 2 por fila (Asegura que no se vean 4) */
+    /* Forzar que los productos ocupen el ancho real */
     .grid-productos {
-        grid-template-columns: repeat(2, 1fr) !important; /* Fuerza 2 columnas */
-        gap: 15px !important;
-        padding: 15px !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        width: 100% !important;
+        padding: 10px !important;
+        gap: 10px !important;
+    }
+
+    .tarjeta-producto {
+        width: 100% !important;
     }
 }
