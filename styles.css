@@ -960,16 +960,16 @@ body {
     object-fit: cover;
 }
 .btn-contacto {
-    /* --- COLORES ORIGINALES --- */
+    /* --- COLORES Y FORMA --- */
     background-color: #22398e !important;
     color: #f4eedb !important;
     border: none !important;
     font-weight: bold !important;
     border-radius: 30px !important;
     
-    /* --- AJUSTE DE TAMAÑO (MÁS PEQUEÑO) --- */
-    padding: 10px 25px !important; /* Antes era 15px 40px */
-    font-size: 15px !important;    /* Antes era 18px */
+    /* --- TAMAÑO --- */
+    padding: 10px 25px !important;
+    font-size: 15px !important;
     
     /* --- COMPORTAMIENTO --- */
     display: inline-block;
@@ -977,21 +977,20 @@ body {
     text-align: center;
     cursor: pointer;
 
-    /* --- ANIMACIÓN DE ZOOM --- */
-    transition: transform 0.3s ease !important;
+    /* --- ESTADO INICIAL PARA LA ANIMACIÓN DE ENTRADA --- */
+    /* (Si quieres que el botón aparezca desde la izquierda al cargar la página) */
+    opacity: 1; 
+    transform: translateX(0); 
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
 }
 
-/* EFECTO ZOOM AL PASAR EL MOUSE (HOVER) */
+/* --- EFECTO ZOOM AL PASAR EL MOUSE (HOVER) --- */
 .btn-contacto:hover {
-    transform: scale(1.1) !important; /* Crece un 10% */
-    display: block;
-    width: 100%;       /* Ocupa todo el ancho ahora que el body no tiene margen */
-    box-sizing: border-box;
+    transform: scale(1.1) !important; /* Aquí solo dejamos el zoom */
+    background-color: #22398e !important; /* Opcional: un azul un poco más oscuro al tocarlo */
+}
+    
 
-    /* ESTADO INICIAL PARA LA ANIMACIÓN */
-    opacity: 0;
-    transform: translateX(-100%); /* Empieza totalmente fuera a la izquierda */
-    transition: transform 1.5s ease-out, opacity 1s ease-out;
 }
 
 /* Clase que activa el JavaScript al hacer scroll */
